@@ -1,0 +1,89 @@
+# Data contract for Silver.students
+# The pipeline enforces this file; a row that breaks it is quarantined, never silently dropped.
+dataset: students
+subdomain: registrar
+owner: Registrar
+description: Enrolled students; Restricted PII. One row per student.
+primary_key: student_id
+columns:
+- name: student_id
+  type: VARCHAR
+  nullable: false
+  description: Stable student key, e.g. STU-000001.
+- name: applicant_id
+  type: VARCHAR
+  nullable: true
+  description: FK to applicants.applicant_id, if they applied through admissions.
+- name: first_name
+  type: VARCHAR
+  nullable: false
+  pii: Confidential
+  description: Given name.
+- name: last_name
+  type: VARCHAR
+  nullable: false
+  pii: Confidential
+  description: Family name.
+- name: email
+  type: VARCHAR
+  nullable: false
+  pii: Confidential
+  description: University email.
+- name: phone
+  type: VARCHAR
+  nullable: false
+  pii: Confidential
+  description: Phone.
+- name: date_of_birth
+  type: DATE
+  nullable: false
+  pii: Restricted
+  description: Date of birth; must not be in the future.
+- name: gov_id
+  type: VARCHAR
+  nullable: false
+  pii: Restricted
+  description: Synthetic government ID; hashed outside Silver.
+- name: program
+  type: VARCHAR
+  nullable: false
+  description: Program of study.
+- name: residency
+  type: VARCHAR
+  nullable: false
+  description: domestic / international.
+- name: enrollment_year
+  type: INTEGER
+  nullable: false
+  description: First enrolment year.
+- name: term_start
+  type: VARCHAR
+  nullable: false
+  description: First term, e.g. 2024-Fall.
+- name: status
+  type: VARCHAR
+  nullable: false
+  description: active / graduated / withdrawn.
+checks:
+- name: pk_unique
+  type: unique
+  column: student_id
+- name: email_format
+  type: format
+  column: email
+  pattern: email
+- name: dob_not_future
+  type: date_not_future
+  column: date_of_birth
+- name: term_allowed
+  type: allowed_values
+  column: term_start
+  values:
+  - 2024-Fall
+  - 2025-Spring
+  - 2025-Fall
+  - 2026-Spring
+- name: fk_applicant
+  type: foreign_key
+  column: applicant_id
+  references: applicants.applicant_id

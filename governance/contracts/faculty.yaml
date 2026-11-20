@@ -1,0 +1,66 @@
+# Data contract for Silver.faculty
+# The pipeline enforces this file; a row that breaks it is quarantined, never silently dropped.
+dataset: faculty
+subdomain: academics
+owner: Dean of Academics
+description: Faculty members; work email is Internal PII.
+primary_key: faculty_id
+columns:
+- name: faculty_id
+  type: VARCHAR
+  nullable: false
+  description: Stable faculty key, e.g. FAC-0001.
+- name: first_name
+  type: VARCHAR
+  nullable: false
+  pii: Confidential
+  description: Given name.
+- name: last_name
+  type: VARCHAR
+  nullable: false
+  pii: Confidential
+  description: Family name.
+- name: email
+  type: VARCHAR
+  nullable: false
+  pii: Confidential
+  description: Work email; Internal PII, masked in Gold.
+- name: department_id
+  type: VARCHAR
+  nullable: false
+  description: FK to departments.department_id.
+- name: rank
+  type: VARCHAR
+  nullable: false
+  description: Assistant / Associate / Full / Lecturer.
+- name: hire_date
+  type: DATE
+  nullable: false
+  description: Hire date; must not be in the future.
+- name: status
+  type: VARCHAR
+  nullable: false
+  description: active / on_leave / retired.
+checks:
+- name: pk_unique
+  type: unique
+  column: faculty_id
+- name: email_format
+  type: format
+  column: email
+  pattern: email
+- name: hire_not_future
+  type: date_not_future
+  column: hire_date
+- name: rank_allowed
+  type: allowed_values
+  column: rank
+  values:
+  - Assistant
+  - Associate
+  - Full
+  - Lecturer
+- name: fk_department
+  type: foreign_key
+  column: department_id
+  references: departments.department_id

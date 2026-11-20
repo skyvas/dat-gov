@@ -1,0 +1,22 @@
+# Catalog entry for tuition_charges.
+dataset: tuition_charges
+subdomain: finance
+owner: Bursar
+steward: Bursar
+description: Tuition and fee charges per student per term. Amounts must be >= 0.
+source_system: Finance system — tuition billing
+classification: Confidential
+pii_fields: []
+retention_years: 7
+retention_note: Keep 7 years for audit (financial records).
+quality_rules:
+- 'pk_unique: unique'
+- 'amount_non_negative: range'
+- 'term_allowed: allowed_values'
+- 'fk_student: foreign_key'
+upstream:
+- data/raw/tuition_charges.csv
+- data/bronze/tuition_charges.parquet
+downstream:
+- data/silver/tuition_charges.parquet
+- gold_finance_summary

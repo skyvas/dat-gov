@@ -1,0 +1,56 @@
+# Data contract for Silver.tuition_charges
+# The pipeline enforces this file; a row that breaks it is quarantined, never silently dropped.
+dataset: tuition_charges
+subdomain: finance
+owner: Bursar
+description: Tuition and fee charges per student per term. Amounts must be >= 0.
+primary_key: charge_id
+columns:
+- name: charge_id
+  type: VARCHAR
+  nullable: false
+  description: Stable charge key, e.g. CHG-000001.
+- name: student_id
+  type: VARCHAR
+  nullable: false
+  description: FK to students.student_id.
+- name: term
+  type: VARCHAR
+  nullable: false
+  description: Term code.
+- name: charge_type
+  type: VARCHAR
+  nullable: false
+  description: tuition / fees / housing / lab.
+- name: amount
+  type: DOUBLE
+  nullable: false
+  description: Charge amount in CAD, >= 0.
+- name: due_date
+  type: DATE
+  nullable: false
+  description: Payment due date.
+- name: status
+  type: VARCHAR
+  nullable: false
+  description: billed / paid / waived / overdue.
+checks:
+- name: pk_unique
+  type: unique
+  column: charge_id
+- name: amount_non_negative
+  type: range
+  column: amount
+  min: 0
+- name: term_allowed
+  type: allowed_values
+  column: term
+  values:
+  - 2024-Fall
+  - 2025-Spring
+  - 2025-Fall
+  - 2026-Spring
+- name: fk_student
+  type: foreign_key
+  column: student_id
+  references: students.student_id

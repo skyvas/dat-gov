@@ -1,0 +1,26 @@
+# Catalog entry for faculty.
+dataset: faculty
+subdomain: academics
+owner: Dean of Academics
+steward: Dean of Academics
+description: Faculty members; work email is Internal PII.
+source_system: HR system — faculty roster
+classification: Internal
+pii_fields:
+- first_name
+- last_name
+- email
+retention_years: 7
+retention_note: Keep 7 years after departure.
+quality_rules:
+- 'pk_unique: unique'
+- 'email_format: format'
+- 'hire_not_future: date_not_future'
+- 'rank_allowed: allowed_values'
+- 'fk_department: foreign_key'
+upstream:
+- data/raw/faculty.csv
+- data/bronze/faculty.parquet
+downstream:
+- data/silver/faculty.parquet
+- gold_faculty_teaching_load

@@ -1,0 +1,21 @@
+applicant_id,first_name,last_name,email,phone,date_of_birth,gov_id,country,residency,program,channel,gpa,application_date,status
+APP-000001,Elena,Lee,elena.lee1@example.edu,+1-555-635-5237,2005-08-20,NB-100000,Canada,domestic,Economics,online,2.75,2024-07-22,rejected
+APP-000002,Vikram,Singh,vikram.singh2@example.edu,+1-555-390-4288,2007-12-20,NB-100001,India,domestic,Biology,online,2.13,2024-11-23,enrolled
+APP-000003,Tara,Silva,tara.silva3@example.edu,+1-555-988-7332,2002-07-17,NB-100002,Canada,international,Data Science,direct,3.73,2024-05-22,waitlisted
+APP-000004,Maya,Ali,maya.ali4@example.edu,+1-555-829-1352,2001-04-17,NB-100003,India,domestic,Economics,direct,3.49,2025-07-17,waitlisted
+APP-000005,Marcus,Rossi,marcus.rossi5@example.edu,+1-555-613-5519,2007-01-21,NB-100004,India,international,Psychology,online,3.89,2025-06-04,waitlisted
+APP-000006,Kabir,Wilson,kabir.wilson6@example.edu,+1-555-189-7262,2005-11-20,NB-100005,United States,domestic,Psychology,agent,2.85,2025-11-02,enrolled
+APP-000007,Ines,Dubey,ines.dubey7@example.edu,+1-555-768-3270,2005-09-22,NB-100006,United States,international,Nursing,high-school,3.38,2024-10-17,waitlisted
+APP-000008,Ethan,Osei,ethan.osei8@example.edu,+1-555-169-9732,2006-02-06,NB-100007,China,international,Business Administration,agent,3.45,2024-09-18,enrolled
+APP-000009,Yuki,Khan,yuki.khan9@example.edu,+1-555-255-4079,2001-03-06,NB-100008,Canada,international,Biology,high-school,3.21,2025-09-28,enrolled
+APP-000010,Kabir,Okafor,kabir.okafor10@example.edu,+1-555-467-2302,2006-08-05,NB-100009,United Kingdom,international,Economics,direct,3.42,2024-12-02,enrolled
+APP-000011,Ivy,Tanaka,ivy.tanaka11@example.edu,+1-555-267-4166,2002-01-14,NB-100010,Canada,international,Nursing,direct,2.45,2025-11-02,waitlisted
+APP-000012,Omar,Lee,omar.lee12@example.edu,+1-555-987-9027,2006-06-28,NB-100011,Brazil,international,Data Science,direct,2.81,2024-08-18,rejected
+APP-000013,Ines,Tanaka,ines.tanaka13@example.edu,+1-555-708-9784,2005-11-23,NB-100012,Canada,domestic,Psychology,direct,2.91,2025-07-14,enrolled
+APP-000014,Nina,Berg,nina.berg14@example.edu,+1-555-496-9456,2007-11-02,NB-100013,United States,domestic,Engineering,direct,3.77,2024-03-15,enrolled
+APP-000015,Kiran,Sharma,kiran.sharma15@example.edu,+1-555-806-9470,2002-08-27,NB-100014,Brazil,domestic,Engineering,online,2.36,2025-07-21,rejected
+APP-000016,Ella,Brown,ella.brown16@example.edu,+1-555-561-1408,2002-08-19,NB-100015,United States,international,Engineering,online,2.5,2025-09-16,enrolled
+APP-000017,Lucas,Nguyen,lucas.nguyen17@example.edu,+1-555-749-6946,2001-09-23,NB-100016,Nigeria,international,Data Science,agent,2.76,2024-04-11,enrolled
+APP-000018,Arjun,Sharma,arjun.sharma18@example.edu,+1-555-989-3369,2002-12-02,NB-100017,Nigeria,domestic,Psychology,direct,2.58,2024-10-28,enrolled
+APP-000019,Priya,Brown,priya.brown19@example.edu,+1-555-112-8514,2004-08-18,NB-100018,Canada,domestic,Economics,direct,2.48,2024-06-01,enrolled
+APP-000020,Nadia,Larsen,nadia.larsen20@example.edu,+1-555-715-1107,2002-09-09,NB-100019,Philippines,domestic,Engineering,agent,2.1,2025-11-17,enrolled

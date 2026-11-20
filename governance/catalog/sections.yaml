@@ -1,0 +1,24 @@
+# Catalog entry for sections.
+dataset: sections
+subdomain: academics
+owner: Registrar
+steward: Registrar
+description: A scheduled offering of a course in a term, taught by one faculty member.
+source_system: SIS — timetable
+classification: Public
+pii_fields: []
+retention_years: 7
+retention_note: Keep 7 years for transcript verification.
+quality_rules:
+- 'pk_unique: unique'
+- 'capacity_range: range'
+- 'term_allowed: allowed_values'
+- 'fk_course: foreign_key'
+- 'fk_faculty: foreign_key'
+upstream:
+- data/raw/sections.csv
+- data/bronze/sections.parquet
+downstream:
+- data/silver/sections.parquet
+- gold_enrollment
+- gold_faculty_teaching_load

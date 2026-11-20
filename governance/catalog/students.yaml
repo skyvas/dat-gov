@@ -1,0 +1,30 @@
+# Catalog entry for students.
+dataset: students
+subdomain: registrar
+owner: Registrar
+steward: Registrar
+description: Enrolled students; Restricted PII. One row per student.
+source_system: SIS — student records
+classification: Restricted
+pii_fields:
+- first_name
+- last_name
+- email
+- phone
+- date_of_birth
+- gov_id
+retention_years: 7
+retention_note: Keep 7 years after graduation/withdrawal.
+quality_rules:
+- 'pk_unique: unique'
+- 'email_format: format'
+- 'dob_not_future: date_not_future'
+- 'term_allowed: allowed_values'
+- 'fk_applicant: foreign_key'
+upstream:
+- data/raw/students.csv
+- data/bronze/students.parquet
+downstream:
+- data/silver/students.parquet
+- gold_enrollment
+- gold_student_retention

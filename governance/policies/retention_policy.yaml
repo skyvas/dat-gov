@@ -1,0 +1,26 @@
+# Retention policy — how long each layer keeps data, and what happens after.
+# Bronze is immutable while it exists, but it is not kept forever:
+# retention applies per dataset (see governance/catalog/*.yaml).
+default_retention_years: 7
+
+rules:
+  - "Bronze: keep for the dataset retention period, then archive to cold storage and delete the working copy."
+  - "Silver: keep for the dataset retention period; deleting a Silver row must also delete its Bronze source on expiry (same retention clock)."
+  - "Gold: aggregates may be kept longer than Silver (they contain no PII), but must be recomputed or dropped if their Silver source is deleted."
+  - "Quarantine: keep quarantined rows for 90 days for investigation, then delete; never promote a quarantined row to Silver without fixing the source."
+  - "Unsuccessful applicants: delete Restricted PII after 7 years, even if the application record is kept in aggregate form."
+  - "Financial records (tuition_charges, payments, financial_aid): minimum 7 years for audit; do not delete early."
+  - "A deletion must be recorded in the quality report / audit log with dataset, row count and reason."
+
+retention_years_by_dataset:
+  departments: 10
+  courses: 10
+  faculty: 7
+  sections: 7
+  applicants: 7
+  applications: 7
+  students: 7
+  enrollments: 7
+  tuition_charges: 7
+  payments: 7
+  financial_aid: 7

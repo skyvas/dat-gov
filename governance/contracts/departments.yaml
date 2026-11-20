@@ -1,0 +1,36 @@
+# Data contract for Silver.departments
+# The pipeline enforces this file; a row that breaks it is quarantined, never silently dropped.
+dataset: departments
+subdomain: academics
+owner: Dean of Academics
+description: Academic departments of Northbridge University; one row per department.
+primary_key: department_id
+columns:
+- name: department_id
+  type: VARCHAR
+  nullable: false
+  description: Stable department key, e.g. DEPT-CS.
+- name: department_name
+  type: VARCHAR
+  nullable: false
+  description: Department name.
+- name: school
+  type: VARCHAR
+  nullable: false
+  description: School/faculty grouping, e.g. School of Science.
+- name: budget
+  type: DOUBLE
+  nullable: false
+  description: Annual operating budget in CAD.
+- name: founded_year
+  type: INTEGER
+  nullable: false
+  description: Year the department was founded.
+checks:
+- name: pk_unique
+  type: unique
+  column: department_id
+- name: budget_non_negative
+  type: range
+  column: budget
+  min: 0

@@ -1,0 +1,21 @@
+student_id,applicant_id,first_name,last_name,email,phone,date_of_birth,gov_id,program,residency,enrollment_year,term_start,status
+STU-000001,APP-000002,Vikram,Singh,vikram.singh2@example.edu,+1-555-390-4288,2007-12-20,NB-100001,Biology,domestic,2024,2024-Fall,active
+STU-000002,APP-000006,Kabir,Wilson,kabir.wilson6@example.edu,+1-555-189-7262,2005-11-20,NB-100005,Psychology,domestic,2025,2025-Fall,active
+STU-000003,APP-000008,Ethan,Osei,ethan.osei8@example.edu,+1-555-169-9732,2006-02-06,NB-100007,Business Administration,international,2024,2024-Fall,active
+STU-000004,APP-000009,Yuki,Khan,yuki.khan9@example.edu,+1-555-255-4079,2001-03-06,NB-100008,Biology,international,2025,2025-Fall,active
+STU-000005,APP-000010,Kabir,Okafor,kabir.okafor10@example.edu,+1-555-467-2302,2006-08-05,NB-100009,Economics,international,2024,2024-Fall,active
+STU-000006,APP-000013,Ines,Tanaka,ines.tanaka13@example.edu,+1-555-708-9784,2005-11-23,NB-100012,Psychology,domestic,2025,2025-Fall,active
+STU-000007,APP-000014,Nina,Berg,nina.berg14@example.edu,+1-555-496-9456,2007-11-02,NB-100013,Engineering,domestic,2024,2024-Fall,graduated
+STU-000008,APP-000016,Ella,Brown,ella.brown16@example.edu,+1-555-561-1408,2002-08-19,NB-100015,Engineering,international,2025,2025-Fall,active
+STU-000009,APP-000017,Lucas,Nguyen,lucas.nguyen17@example.edu,+1-555-749-6946,2001-09-23,NB-100016,Data Science,international,2024,2024-Fall,active
+STU-000010,APP-000018,Arjun,Sharma,arjun.sharma18@example.edu,+1-555-989-3369,2002-12-02,NB-100017,Psychology,domestic,2024,2024-Fall,active
+STU-000011,APP-000019,Priya,Brown,priya.brown19@example.edu,+1-555-112-8514,2004-08-18,NB-100018,Economics,domestic,2024,2024-Fall,active
+STU-000012,APP-000020,Nadia,Larsen,nadia.larsen20@example.edu,+1-555-715-1107,2002-09-09,NB-100019,Engineering,domestic,2025,2025-Fall,active
+STU-000013,APP-000022,Dante,Okafor,dante.okafor22@example.edu,+1-555-468-1587,2001-05-11,NB-100021,Business Administration,international,2025,2025-Fall,active
+STU-000014,APP-000024,Meera,Berg,meera.berg24@example.edu,+1-555-537-6185,2003-09-19,NB-100023,Data Science,domestic,2025,2025-Fall,active
+STU-000015,APP-000027,Jonas,Ahmed,jonas.ahmed27@example.edu,+1-555-449-7488,2006-10-20,NB-100026,Computer Science,international,2024,2024-Fall,active
+STU-000016,APP-000028,Nadia,Moreau,nadia.moreau28@example.edu,+1-555-259-8546,2007-09-11,NB-100027,Computer Science,international,2024,2024-Fall,active
+STU-000017,APP-000029,Vikram,Fischer,vikram.fischer29@example.edu,+1-555-691-6434,2007-06-03,NB-100028,Psychology,domestic,2024,2024-Fall,withdrawn
+STU-000018,APP-000030,Ella,Sharma,ella.sharma30@example.edu,+1-555-985-6050,2006-06-23,NB-100029,Engineering,domestic,2024,2024-Fall,active
+STU-000019,APP-000031,Hana,Petrov,hana.petrov31@example.edu,+1-555-409-3867,2001-06-26,NB-100030,Biology,international,2024,2024-Fall,active
+STU-000020,APP-000033,Kiran,Tanaka,kiran.tanaka33@example.edu,+1-555-145-2426,2003-08-02,NB-100032,Data Science,domestic,2024,2024-Fall,active

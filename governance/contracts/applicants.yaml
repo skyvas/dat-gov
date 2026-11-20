@@ -1,0 +1,92 @@
+# Data contract for Silver.applicants
+# The pipeline enforces this file; a row that breaks it is quarantined, never silently dropped.
+dataset: applicants
+subdomain: admissions
+owner: Director of Admissions
+description: People who applied; contains Restricted PII (gov_id, date of birth).
+primary_key: applicant_id
+columns:
+- name: applicant_id
+  type: VARCHAR
+  nullable: false
+  description: Stable applicant key, e.g. APP-000001.
+- name: first_name
+  type: VARCHAR
+  nullable: false
+  pii: Confidential
+  description: Given name.
+- name: last_name
+  type: VARCHAR
+  nullable: false
+  pii: Confidential
+  description: Family name.
+- name: email
+  type: VARCHAR
+  nullable: false
+  pii: Confidential
+  description: Personal email; Confidential PII.
+- name: phone
+  type: VARCHAR
+  nullable: false
+  pii: Confidential
+  description: Phone; Confidential PII.
+- name: date_of_birth
+  type: DATE
+  nullable: false
+  pii: Restricted
+  description: Date of birth; Restricted PII, must not be in the future.
+- name: gov_id
+  type: VARCHAR
+  nullable: false
+  pii: Restricted
+  description: Synthetic government ID; Restricted, hashed outside Silver.
+- name: country
+  type: VARCHAR
+  nullable: false
+  description: Country of residence.
+- name: residency
+  type: VARCHAR
+  nullable: false
+  description: domestic / international.
+- name: program
+  type: VARCHAR
+  nullable: false
+  description: Program applied to.
+- name: channel
+  type: VARCHAR
+  nullable: false
+  description: online / agent / high-school / direct.
+- name: gpa
+  type: DOUBLE
+  nullable: false
+  description: High-school GPA, 2.0-4.0.
+- name: application_date
+  type: DATE
+  nullable: false
+  description: Date the application was submitted.
+- name: status
+  type: VARCHAR
+  nullable: false
+  description: applied / admitted / enrolled / rejected / waitlisted.
+checks:
+- name: pk_unique
+  type: unique
+  column: applicant_id
+- name: email_format
+  type: format
+  column: email
+  pattern: email
+- name: dob_not_future
+  type: date_not_future
+  column: date_of_birth
+- name: gpa_range
+  type: range
+  column: gpa
+  min: 2.0
+  max: 4.0
+- name: residency_allowed
+  type: allowed_values
+  column: residency
+  values:
+  - domestic
+  - international

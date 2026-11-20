@@ -1,0 +1,34 @@
+# Access control — who may see what, at which layer.
+# Rules enforced by design (not just documented):
+#  - Silver keeps PII, but only for roles listed here.
+#  - Gold carries NO raw PII columns at all (see pii_policy.yaml).
+#  - A role that is not listed for a dataset has no access to it.
+roles:
+  Admin:
+    description: Platform admin; full access for operations and audit.
+    datasets: [departments, courses, faculty, sections, applicants, applications, students, enrollments, tuition_charges, payments, financial_aid]
+    masked_columns: []
+  Registrar:
+    description: Owns student and enrolment records.
+    datasets: [departments, courses, faculty, sections, applicants, applications, students, enrollments]
+    masked_columns: [gov_id]
+  Faculty:
+    description: Teaches sections; sees their own sections and enrolments, never finance or gov IDs.
+    datasets: [departments, courses, faculty, sections, enrollments]
+    masked_columns: [email, phone, gov_id]
+  Finance:
+    description: Owns billing, payments and aid; sees student identity only masked.
+    datasets: [students, enrollments, tuition_charges, payments, financial_aid]
+    masked_columns: [email, phone, gov_id]
+  Analyst:
+    description: Builds Gold marts and reports; Gold only, PII masked.
+    datasets: [gold_admissions_funnel, gold_enrollment, gold_student_retention, gold_finance_summary, gold_faculty_teaching_load]
+    masked_columns: [email, phone, gov_id, first_name, last_name]
+  Auditor:
+    description: Read-only; verifies quality reports, lineage and access logs.
+    datasets: [departments, courses, faculty, sections, applicants, applications, students, enrollments, tuition_charges, payments, financial_aid]
+    masked_columns: [email, phone, gov_id]
+  Viewer:
+    description: Public-facing reporting; Gold only, no PII of any kind.
+    datasets: [gold_admissions_funnel, gold_enrollment, gold_student_retention, gold_finance_summary, gold_faculty_teaching_load]
+    masked_columns: [email, phone, gov_id, first_name, last_name]

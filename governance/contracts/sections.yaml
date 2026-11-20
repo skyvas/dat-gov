@@ -1,0 +1,65 @@
+# Data contract for Silver.sections
+# The pipeline enforces this file; a row that breaks it is quarantined, never silently dropped.
+dataset: sections
+subdomain: academics
+owner: Registrar
+description: A scheduled offering of a course in a term, taught by one faculty member.
+primary_key: section_id
+columns:
+- name: section_id
+  type: VARCHAR
+  nullable: false
+  description: Stable section key, e.g. SEC-0001.
+- name: course_id
+  type: VARCHAR
+  nullable: false
+  description: FK to courses.course_id.
+- name: faculty_id
+  type: VARCHAR
+  nullable: false
+  description: FK to faculty.faculty_id.
+- name: term
+  type: VARCHAR
+  nullable: false
+  description: Term code, e.g. 2025-Fall.
+- name: capacity
+  type: INTEGER
+  nullable: false
+  description: Seat capacity, 1-200.
+- name: room
+  type: VARCHAR
+  nullable: true
+  description: Room, e.g. NB-204.
+- name: modality
+  type: VARCHAR
+  nullable: false
+  description: in-person / online / hybrid.
+- name: schedule
+  type: VARCHAR
+  nullable: true
+  description: Meeting pattern, e.g. Mon/Wed 10:00.
+checks:
+- name: pk_unique
+  type: unique
+  column: section_id
+- name: capacity_range
+  type: range
+  column: capacity
+  min: 1
+  max: 200
+- name: term_allowed
+  type: allowed_values
+  column: term
+  values:
+  - 2024-Fall
+  - 2025-Spring
+  - 2025-Fall
+  - 2026-Spring
+- name: fk_course
+  type: foreign_key
+  column: course_id
+  references: courses.course_id
+- name: fk_faculty
+  type: foreign_key
+  column: faculty_id
+  references: faculty.faculty_id

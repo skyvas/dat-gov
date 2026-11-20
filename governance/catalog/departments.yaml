@@ -1,0 +1,19 @@
+# Catalog entry for departments.
+dataset: departments
+subdomain: academics
+owner: Dean of Academics
+steward: Dean of Academics
+description: Academic departments of Northbridge University; one row per department.
+source_system: Student Information System (SIS) — department master
+classification: Public
+pii_fields: []
+retention_years: 10
+retention_note: Keep 10 years for accreditation reporting.
+quality_rules:
+- 'pk_unique: unique'
+- 'budget_non_negative: range'
+upstream:
+- data/raw/departments.csv
+- data/bronze/departments.parquet
+downstream:
+- data/silver/departments.parquet

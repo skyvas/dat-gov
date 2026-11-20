@@ -1,0 +1,23 @@
+# Catalog entry for payments.
+dataset: payments
+subdomain: finance
+owner: Bursar
+steward: Bursar
+description: Payments against charges. Amounts must be >= 0.
+source_system: Finance system — payments
+classification: Confidential
+pii_fields: []
+retention_years: 7
+retention_note: Keep 7 years for audit (financial records).
+quality_rules:
+- 'pk_unique: unique'
+- 'amount_non_negative: range'
+- 'term_allowed: allowed_values'
+- 'fk_student: foreign_key'
+- 'fk_charge: foreign_key'
+upstream:
+- data/raw/payments.csv
+- data/bronze/payments.parquet
+downstream:
+- data/silver/payments.parquet
+- gold_finance_summary

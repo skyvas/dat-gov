@@ -1,0 +1,64 @@
+# Data contract for Silver.payments
+# The pipeline enforces this file; a row that breaks it is quarantined, never silently dropped.
+dataset: payments
+subdomain: finance
+owner: Bursar
+description: Payments against charges. Amounts must be >= 0.
+primary_key: payment_id
+columns:
+- name: payment_id
+  type: VARCHAR
+  nullable: false
+  description: Stable payment key, e.g. PAY-000001.
+- name: student_id
+  type: VARCHAR
+  nullable: false
+  description: FK to students.student_id.
+- name: charge_id
+  type: VARCHAR
+  nullable: true
+  description: FK to tuition_charges.charge_id, if linked to a charge.
+- name: term
+  type: VARCHAR
+  nullable: false
+  description: Term code.
+- name: amount
+  type: DOUBLE
+  nullable: false
+  description: Payment amount in CAD, >= 0.
+- name: payment_date
+  type: DATE
+  nullable: false
+  description: Payment date.
+- name: method
+  type: VARCHAR
+  nullable: false
+  description: card / bank_transfer / e-transfer / cash.
+- name: status
+  type: VARCHAR
+  nullable: false
+  description: completed / pending / refunded.
+checks:
+- name: pk_unique
+  type: unique
+  column: payment_id
+- name: amount_non_negative
+  type: range
+  column: amount
+  min: 0
+- name: term_allowed
+  type: allowed_values
+  column: term
+  values:
+  - 2024-Fall
+  - 2025-Spring
+  - 2025-Fall
+  - 2026-Spring
+- name: fk_student
+  type: foreign_key
+  column: student_id
+  references: students.student_id
+- name: fk_charge
+  type: foreign_key
+  column: charge_id
+  references: tuition_charges.charge_id

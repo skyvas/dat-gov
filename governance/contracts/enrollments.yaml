@@ -1,0 +1,73 @@
+# Data contract for Silver.enrollments
+# The pipeline enforces this file; a row that breaks it is quarantined, never silently dropped.
+dataset: enrollments
+subdomain: registrar
+owner: Registrar
+description: One row per student per section; the core fact table for teaching.
+primary_key: enrollment_id
+columns:
+- name: enrollment_id
+  type: VARCHAR
+  nullable: false
+  description: Stable enrolment key, e.g. ENR-000001.
+- name: student_id
+  type: VARCHAR
+  nullable: false
+  description: FK to students.student_id.
+- name: section_id
+  type: VARCHAR
+  nullable: false
+  description: FK to sections.section_id.
+- name: course_id
+  type: VARCHAR
+  nullable: false
+  description: FK to courses.course_id; must match the section's course.
+- name: term
+  type: VARCHAR
+  nullable: false
+  description: Term code.
+- name: grade
+  type: VARCHAR
+  nullable: true
+  description: A / B / C / D / F / W / IP, or null if in progress.
+- name: credits
+  type: INTEGER
+  nullable: false
+  description: Credits for this enrolment, 1-4.
+- name: enrollment_date
+  type: DATE
+  nullable: false
+  description: Enrolment date.
+- name: status
+  type: VARCHAR
+  nullable: false
+  description: enrolled / completed / withdrawn.
+checks:
+- name: pk_unique
+  type: unique
+  column: enrollment_id
+- name: term_allowed
+  type: allowed_values
+  column: term
+  values:
+  - 2024-Fall
+  - 2025-Spring
+  - 2025-Fall
+  - 2026-Spring
+- name: credits_range
+  type: range
+  column: credits
+  min: 1
+  max: 4
+- name: fk_student
+  type: foreign_key
+  column: student_id
+  references: students.student_id
+- name: fk_section
+  type: foreign_key
+  column: section_id
+  references: sections.section_id
+- name: fk_course
+  type: foreign_key
+  column: course_id
+  references: courses.course_id

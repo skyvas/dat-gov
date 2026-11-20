@@ -1,0 +1,21 @@
+application_id,applicant_id,program,term,channel,gpa,submitted_date,decision_date,status
+APL-000001,APP-000001,Economics,2025-Spring,online,2.75,2024-07-22,2024-09-16,rejected
+APL-000002,APP-000002,Biology,2025-Spring,online,2.13,2024-11-23,2025-01-18,enrolled
+APL-000003,APP-000003,Data Science,2024-Fall,direct,3.73,2024-05-22,2024-07-09,waitlisted
+APL-000004,APP-000004,Economics,2026-Spring,direct,3.49,2025-07-17,2025-08-01,waitlisted
+APL-000005,APP-000005,Psychology,2025-Fall,online,3.89,2025-06-04,2025-07-05,waitlisted
+APL-000006,APP-000006,Psychology,2026-Spring,agent,2.85,2025-11-02,2025-12-05,enrolled
+APL-000007,APP-000007,Nursing,2025-Spring,high-school,3.38,2024-10-17,2024-12-03,waitlisted
+APL-000008,APP-000008,Business Administration,2025-Spring,agent,3.45,2024-09-18,2024-10-22,enrolled
+APL-000009,APP-000009,Biology,2026-Spring,high-school,3.21,2025-09-28,2025-11-20,enrolled
+APL-000010,APP-000010,Economics,2025-Spring,direct,3.42,2024-12-02,2025-01-08,enrolled
+APL-000011,APP-000011,Nursing,2026-Spring,direct,2.45,2025-11-02,2025-12-28,waitlisted
+APL-000012,APP-000012,Data Science,2025-Spring,direct,2.81,2024-08-18,2024-09-03,rejected
+APL-000013,APP-000013,Psychology,2026-Spring,direct,2.91,2025-07-14,2025-07-30,enrolled
+APL-000014,APP-000014,Engineering,2024-Fall,direct,3.77,2024-03-15,2024-04-16,enrolled
+APL-000015,APP-000015,Engineering,2025-Fall,online,2.36,2025-07-21,2025-09-10,rejected
+APL-000016,APP-000016,Engineering,2026-Spring,online,2.5,2025-09-16,2025-11-13,enrolled
+APL-000017,APP-000017,Data Science,2024-Fall,agent,2.76,2024-04-11,2024-05-19,enrolled
+APL-000018,APP-000018,Psychology,2025-Spring,direct,2.58,2024-10-28,2024-11-22,enrolled
+APL-000019,APP-000019,Economics,2024-Fall,direct,2.48,2024-06-01,2024-07-22,enrolled
+APL-000020,APP-000020,Engineering,2026-Spring,agent,2.1,2025-11-17,2025-12-10,enrolled

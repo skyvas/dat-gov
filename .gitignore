@@ -1,0 +1,21 @@
+# Generated data (reproducible via `python -m dat_gov.cli all`)
+data/raw/
+data/bronze/
+data/silver/
+data/gold/
+data/quarantine/
+data/*.duckdb
+data/quality_report.json
+data/lineage.json
+# Keep samples: data/samples/ is committed on purpose.
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/

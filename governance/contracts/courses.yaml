@@ -1,0 +1,53 @@
+# Data contract for Silver.courses
+# The pipeline enforces this file; a row that breaks it is quarantined, never silently dropped.
+dataset: courses
+subdomain: academics
+owner: Dean of Academics
+description: Courses offered; one row per course. A course belongs to one department.
+primary_key: course_id
+columns:
+- name: course_id
+  type: VARCHAR
+  nullable: false
+  description: Stable course key, e.g. CS101.
+- name: department_id
+  type: VARCHAR
+  nullable: false
+  description: FK to departments.department_id.
+- name: course_code
+  type: VARCHAR
+  nullable: false
+  description: Human course code, e.g. CS 101.
+- name: title
+  type: VARCHAR
+  nullable: false
+  description: Course title.
+- name: credits
+  type: INTEGER
+  nullable: false
+  description: Credit value, 1-4.
+- name: level
+  type: INTEGER
+  nullable: false
+  description: Course level, 100-400.
+checks:
+- name: pk_unique
+  type: unique
+  column: course_id
+- name: credits_range
+  type: range
+  column: credits
+  min: 1
+  max: 4
+- name: level_allowed
+  type: allowed_values
+  column: level
+  values:
+  - 100
+  - 200
+  - 300
+  - 400
+- name: fk_department
+  type: foreign_key
+  column: department_id
+  references: departments.department_id

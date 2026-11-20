@@ -1,0 +1,65 @@
+# Data contract for Silver.applications
+# The pipeline enforces this file; a row that breaks it is quarantined, never silently dropped.
+dataset: applications
+subdomain: admissions
+owner: Director of Admissions
+description: One row per application. An applicant may submit a second application.
+primary_key: application_id
+columns:
+- name: application_id
+  type: VARCHAR
+  nullable: false
+  description: Stable application key, e.g. APL-000001.
+- name: applicant_id
+  type: VARCHAR
+  nullable: false
+  description: FK to applicants.applicant_id.
+- name: program
+  type: VARCHAR
+  nullable: false
+  description: Program applied to.
+- name: term
+  type: VARCHAR
+  nullable: false
+  description: Term applied for.
+- name: channel
+  type: VARCHAR
+  nullable: false
+  description: online / agent / high-school / direct.
+- name: gpa
+  type: DOUBLE
+  nullable: false
+  description: GPA at application, 2.0-4.0.
+- name: submitted_date
+  type: DATE
+  nullable: false
+  description: Submission date.
+- name: decision_date
+  type: DATE
+  nullable: true
+  description: Decision date, if decided.
+- name: status
+  type: VARCHAR
+  nullable: false
+  description: submitted / admitted / enrolled / rejected / waitlisted.
+checks:
+- name: pk_unique
+  type: unique
+  column: application_id
+- name: term_allowed
+  type: allowed_values
+  column: term
+  values:
+  - 2024-Fall
+  - 2025-Spring
+  - 2025-Fall
+  - 2026-Spring
+- name: gpa_range
+  type: range
+  column: gpa
+  min: 2.0
+  max: 4.0
+- name: fk_applicant
+  type: foreign_key
+  column: applicant_id
+  references: applicants.applicant_id

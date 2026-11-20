@@ -1,0 +1,33 @@
+# PII policy — classification levels and masking rules.
+# All data in this project is synthetic (see docs/DECISIONS.md), but the
+# policy is written as if it were real, so the habits transfer.
+classification_levels:
+  Public:
+    description: May be published (course catalogue, department list).
+    examples: [departments, courses, sections]
+  Internal:
+    description: Staff-only; no external sharing.
+    examples: [faculty, applications, enrollments]
+  Confidential:
+    description: Restricted to the owning subdomain + Finance/Registrar as listed in access_roles.yaml.
+    examples: [tuition_charges, payments, financial_aid]
+  Restricted:
+    description: Direct identifiers / government IDs. Smallest possible audience, hashed outside Silver.
+    examples: [applicants, students]
+
+pii_fields: [first_name, last_name, email, phone, date_of_birth, gov_id]
+
+masking_rules:
+  # Applied in src/dat_gov/masking.py; Gold must contain none of the raw values.
+  email: "mask local part, keep domain: j***@example.edu"
+  phone: "keep last 4 digits only: ***-***-1234"
+  gov_id: "SHA-256 hash with project salt; never show raw or partially masked"
+  first_name: "drop from Gold (aggregate only)"
+  last_name: "drop from Gold (aggregate only)"
+  date_of_birth: "drop from Gold; derive age bands in Silver if needed, never in Gold"
+
+rules:
+  - "Silver may retain PII, tagged in the contract (pii: Confidential/Restricted)."
+  - "Gold must not contain raw email, phone, gov_id, first_name, last_name or date_of_birth."
+  - "Masking is deterministic: the same input always yields the same token."
+  - "No real personal data is ever committed to this repository."

@@ -1,0 +1,22 @@
+# Catalog entry for applications.
+dataset: applications
+subdomain: admissions
+owner: Director of Admissions
+steward: Director of Admissions
+description: One row per application. An applicant may submit a second application.
+source_system: Admissions CRM — applications
+classification: Internal
+pii_fields: []
+retention_years: 7
+retention_note: Keep 7 years.
+quality_rules:
+- 'pk_unique: unique'
+- 'term_allowed: allowed_values'
+- 'gpa_range: range'
+- 'fk_applicant: foreign_key'
+upstream:
+- data/raw/applications.csv
+- data/bronze/applications.parquet
+downstream:
+- data/silver/applications.parquet
+- gold_admissions_funnel

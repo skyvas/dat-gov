@@ -1,0 +1,29 @@
+# Catalog entry for applicants.
+dataset: applicants
+subdomain: admissions
+owner: Director of Admissions
+steward: Director of Admissions
+description: People who applied; contains Restricted PII (gov_id, date of birth).
+source_system: Admissions CRM — applicant records
+classification: Restricted
+pii_fields:
+- first_name
+- last_name
+- email
+- phone
+- date_of_birth
+- gov_id
+retention_years: 7
+retention_note: Keep 7 years; delete unsuccessful applicants after retention, per
+  retention policy.
+quality_rules:
+- 'pk_unique: unique'
+- 'email_format: format'
+- 'dob_not_future: date_not_future'
+- 'gpa_range: range'
+- 'residency_allowed: allowed_values'
+upstream:
+- data/raw/applicants.csv
+- data/bronze/applicants.parquet
+downstream:
+- data/silver/applicants.parquet

@@ -1,0 +1,21 @@
+course_id,department_id,course_code,title,credits,level
+CS101,DEPT-CS,CS 101,Intro to Programming,3,100
+CS201,DEPT-CS,CS 201,Data Structures,3,200
+CS301,DEPT-CS,CS 301,Databases,3,300
+CS401,DEPT-CS,CS 401,Algorithms,3,400
+CS501,DEPT-CS,CS 501,Machine Learning,4,100
+BU101,DEPT-BUS,BU 101,Principles of Management,3,100
+BU201,DEPT-BUS,BU 201,Marketing,3,200
+BU301,DEPT-BUS,BU 301,Finance,3,300
+BU401,DEPT-BUS,BU 401,Organisational Behaviour,3,400
+BU501,DEPT-BUS,BU 501,Strategy,4,100
+EC101,DEPT-ECO,EC 101,Microeconomics,3,100
+EC201,DEPT-ECO,EC 201,Macroeconomics,3,200
+EC301,DEPT-ECO,EC 301,Econometrics,3,300
+EC401,DEPT-ECO,EC 401,Development Economics,3,400
+EC501,DEPT-ECO,EC 501,Game Theory,4,100
+BI101,DEPT-BIO,BI 101,Cell Biology,3,100
+BI201,DEPT-BIO,BI 201,Genetics,3,200
+BI301,DEPT-BIO,BI 301,Ecology,3,300
+BI401,DEPT-BIO,BI 401,Human Anatomy,3,400
+BI501,DEPT-BIO,BI 501,Microbiology,4,100

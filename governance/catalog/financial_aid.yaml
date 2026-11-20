@@ -1,0 +1,22 @@
+# Catalog entry for financial_aid.
+dataset: financial_aid
+subdomain: finance
+owner: Director of Financial Aid
+steward: Director of Financial Aid
+description: Aid awards per student per term.
+source_system: Financial aid system
+classification: Confidential
+pii_fields: []
+retention_years: 7
+retention_note: Keep 7 years for audit.
+quality_rules:
+- 'pk_unique: unique'
+- 'amount_non_negative: range'
+- 'term_allowed: allowed_values'
+- 'fk_student: foreign_key'
+upstream:
+- data/raw/financial_aid.csv
+- data/bronze/financial_aid.parquet
+downstream:
+- data/silver/financial_aid.parquet
+- gold_finance_summary

@@ -1,0 +1,25 @@
+# Catalog entry for enrollments.
+dataset: enrollments
+subdomain: registrar
+owner: Registrar
+steward: Registrar
+description: One row per student per section; the core fact table for teaching.
+source_system: SIS — enrolments
+classification: Internal
+pii_fields: []
+retention_years: 7
+retention_note: Keep 7 years for transcript verification.
+quality_rules:
+- 'pk_unique: unique'
+- 'term_allowed: allowed_values'
+- 'credits_range: range'
+- 'fk_student: foreign_key'
+- 'fk_section: foreign_key'
+- 'fk_course: foreign_key'
+upstream:
+- data/raw/enrollments.csv
+- data/bronze/enrollments.parquet
+downstream:
+- data/silver/enrollments.parquet
+- gold_enrollment
+- gold_faculty_teaching_load
