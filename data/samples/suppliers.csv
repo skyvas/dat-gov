@@ -1,0 +1,21 @@
+supplier_id,supplier_name,country,region,category,contact_email,rating,supplier_status
+SUP-001,Nordic Marine Services 1,India,Middle East,safety equipment,sales0@supplier0.example.com,2.9,active
+SUP-002,Marine Marine Services 2,India,Americas,deck stores,sales1@supplier1.example.com,4.6,active
+SUP-003,Nordic Engineering 3,UAE,Asia-Pacific,provisions,sales2@supplier2.example.com,2.9,active
+SUP-004,Nordic Supply 4,UAE,Asia-Pacific,fuel,sales3@supplier3.example.com,4.3,active
+SUP-005,Global Marine Services 5,United Kingdom,Middle East,fuel,sales4@supplier4.example.com,4.3,on hold
+SUP-006,Global Trading 6,United Kingdom,Asia-Pacific,repair services,sales5@supplier5.example.com,3.6,active
+SUP-007,Nordic Engineering 7,Germany,Europe,engine spares,sales6@supplier6.example.com,2.8,active
+SUP-008,Atlantic Supply 8,UAE,Asia-Pacific,engine spares,sales7@supplier7.example.com,3.0,active
+SUP-009,Pacific Engineering 9,India,Europe,fuel,sales8@supplier8.example.com,4.8,active
+SUP-010,Nordic Logistics 10,India,Middle East,repair services,sales9@supplier9.example.com,3.1,active
+SUP-011,Atlantic Engineering 11,United Kingdom,Americas,electrical,sales10@supplier10.example.com,4.4,active
+SUP-012,Global Marine Services 12,Japan,Asia-Pacific,repair services,sales11@supplier11.example.com,3.1,blacklisted
+SUP-013,Atlantic Engineering 13,UAE,Middle East,engine spares,sales12@supplier12.example.com,2.5,active
+SUP-014,Nordic Marine Services 14,South Korea,Europe,repair services,sales13@supplier13.example.com,4.8,active
+SUP-015,Pacific Supply 15,Japan,Asia-Pacific,fuel,sales14@supplier14.example.com,4.8,active
+SUP-016,Nordic Engineering 16,Germany,Asia-Pacific,provisions,sales15@supplier15.example.com,4.3,on hold
+SUP-017,Global Supply 17,Singapore,Asia-Pacific,provisions,sales16@supplier16.example.com,5.0,active
+SUP-018,Global Supply 18,United Kingdom,Asia-Pacific,deck stores,sales17@supplier17.example.com,2.6,active
+SUP-019,Harbour Supply 19,India,Asia-Pacific,repair services,sales18@supplier18.example.com,4.6,on hold
+SUP-020,Nordic Supply 20,South Korea,Americas,safety equipment,sales19@supplier19.example.com,3.5,active

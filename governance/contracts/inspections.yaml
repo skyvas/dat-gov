@@ -1,0 +1,61 @@
+dataset: inspections
+subdomain: maintenance
+primary_key: inspection_id
+schema:
+- column: inspection_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: asset_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: vessel_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+- column: warehouse_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+- column: inspection_type
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: inspection_date
+  type: DATE
+  nullable: false
+  pii: false
+- column: inspector
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: result
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: findings
+  type: VARCHAR
+  nullable: false
+  pii: false
+not_null:
+- inspection_id
+- asset_id
+- inspection_type
+- inspection_date
+- inspector
+- result
+- findings
+foreign_keys:
+- column: asset_id
+  references: assets.asset_id
+- column: vessel_id
+  references: vessels.vessel_id
+- column: warehouse_id
+  references: warehouses.warehouse_id
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative

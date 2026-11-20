@@ -1,0 +1,21 @@
+certification_id,crew_id,certification_type,issuing_authority,issue_date,expiry_date,cert_status
+CER-00001,CRW-00099,Bridge Resource Management,Class Society,2025-10-20,2027-10-10,valid
+CER-00002,CRW-01593,Security Awareness,Class Society,2026-03-05,2030-12-25,valid
+CER-00003,CRW-00748,Bridge Resource Management,DMA,2023-08-25,2027-11-09,valid
+CER-00004,CRW-00213,Security Awareness,Flag Administration,2024-10-23,2028-05-27,valid
+CER-00005,CRW-00289,Advanced Fire Fighting,MCA,2025-05-28,2028-12-01,valid
+CER-00006,CRW-00894,Bridge Resource Management,USCG,2025-07-11,2026-09-04,expired
+CER-00007,CRW-01615,Bridge Resource Management,Class Society,2023-05-18,2026-04-18,expired
+CER-00008,CRW-01194,Proficiency in Survival Craft,Flag Administration,2024-08-10,2029-07-30,valid
+CER-00009,CRW-01745,Tanker Endorsement,MCA,2024-11-27,2026-09-26,expired
+CER-00010,CRW-00222,Medical Fitness,MCA,2024-07-19,2027-06-28,valid
+CER-00011,CRW-01143,Medical Fitness,AMSA,2025-12-01,2030-06-19,valid
+CER-00012,CRW-00161,Tanker Endorsement,DMA,2023-11-16,2025-12-25,expired
+CER-00013,CRW-00146,STCW Basic Safety,Flag Administration,2025-09-29,2029-04-25,valid
+CER-00014,CRW-01419,Security Awareness,AMSA,2024-11-11,2026-12-19,valid
+CER-00015,,Security Awareness,DMA,2025-01-12,2026-08-26,expired
+CER-00016,CRW-00176,Tanker Endorsement,AMSA,2023-11-05,2027-09-08,valid
+CER-00017,CRW-00045,Security Awareness,MCA,2025-09-05,2028-10-17,valid
+CER-00018,CRW-00923,Medical Fitness,USCG,2024-08-24,2029-08-01,valid
+CER-00019,CRW-00699,STCW Basic Safety,AMSA,2026-05-04,2029-04-30,valid
+CER-00020,CRW-00544,Tanker Endorsement,Flag Administration,2022-12-06,2026-12-17,valid

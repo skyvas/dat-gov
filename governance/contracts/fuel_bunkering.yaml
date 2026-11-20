@@ -1,0 +1,63 @@
+dataset: fuel_bunkering
+subdomain: fleet
+primary_key: bunkering_id
+schema:
+- column: bunkering_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: vessel_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: port_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: supplier_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: bunkering_date
+  type: DATE
+  nullable: false
+  pii: false
+- column: fuel_type
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: quantity_tonnes
+  type: DOUBLE
+  nullable: false
+  pii: false
+- column: cost_amount
+  type: DOUBLE
+  nullable: false
+  pii: false
+- column: currency
+  type: VARCHAR
+  nullable: false
+  pii: false
+not_null:
+- bunkering_id
+- vessel_id
+- port_id
+- supplier_id
+- bunkering_date
+- fuel_type
+- quantity_tonnes
+- cost_amount
+- currency
+foreign_keys:
+- column: vessel_id
+  references: vessels.vessel_id
+- column: port_id
+  references: ports.port_id
+- column: supplier_id
+  references: suppliers.supplier_id
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative

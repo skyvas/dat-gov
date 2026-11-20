@@ -1,0 +1,23 @@
+dataset: fuel_bunkering
+subdomain: fleet
+domain: Maritime Supply Chain & Fleet Operations
+description: One row per fuel bunkering event for a vessel at a port.
+owner: Fleet Director
+steward: Fleet Operations Steward
+classification: internal
+pii_fields: []
+retention: 5 years
+source_system: vessel systems (offline-capable)
+quality_rules:
+- not_null_pk
+- fk_integrity
+- no_future_dates
+- non_negative_amounts
+- date_order
+upstream:
+- vessels
+- ports
+- suppliers
+downstream:
+- gold_voyage_performance
+gold_marts: []

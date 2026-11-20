@@ -1,0 +1,13 @@
+# PII policy: crew passport / seafarer ID / email / phone and supplier contact email.
+policy: PII handling
+principles:
+  - Classify PII in every contract (pii: true) and catalog entry.
+  - Gold marts contain no raw PII — only aggregates, or SHA-256 hashes where a join key is needed.
+  - Display masking: email j***@domain, phone ******42, passport/seafarer ID ****42.
+  - Hashing is deterministic (SHA-256 with a fixed salt) so the same person joins the same way every run.
+  - Access to clear PII is limited to Compliance Officer and Crewing Manager roles; all other roles see masked values.
+  - No real personal data is used in this synthetic model; all crew identities are invented.
+pii_fields:
+  crew_members: [email, phone, passport_number, seafarer_id]
+  suppliers: [contact_email]
+retention_of_pii: 7 years after off-hire, then delete

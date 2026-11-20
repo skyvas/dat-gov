@@ -1,0 +1,23 @@
+dataset: vessels
+subdomain: fleet
+domain: Maritime Supply Chain & Fleet Operations
+description: One row per vessel in the Northgate fleet, with type, flag, tonnage and
+  operating status.
+owner: Fleet Director
+steward: Fleet Operations Steward
+classification: internal
+pii_fields: []
+retention: 5 years
+source_system: warehouse-erp + vessel systems
+quality_rules:
+- not_null_pk
+- fk_integrity
+- no_future_dates
+- non_negative_amounts
+- date_order
+upstream:
+- ports
+downstream:
+- voyages
+- gold_fleet_availability
+gold_marts: []

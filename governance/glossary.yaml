@@ -1,0 +1,98 @@
+# Business glossary — 32 terms. Each term names its owning subdomain.
+terms:
+  - term: vessel
+    definition: A ship in the Northgate fleet, identified by vessel_id and IMO number.
+    subdomain: fleet
+  - term: voyage
+    definition: A single passage of a vessel from a departure port to an arrival port.
+    subdomain: fleet
+  - term: IMO number
+    definition: The seven-digit International Maritime Organization number uniquely identifying a vessel.
+    subdomain: fleet
+  - term: port
+    definition: A harbour location identified by UN/LOCODE where vessels load, discharge or bunker.
+    subdomain: fleet
+  - term: UN/LOCODE
+    definition: United Nations code for trade and transport locations, e.g. SGSIN for Singapore.
+    subdomain: fleet
+  - term: gross tonnage
+    definition: A measure of a vessel's overall internal volume, not its weight.
+    subdomain: fleet
+  - term: dry-dock
+    definition: A period when a vessel is taken out of service in a dock for hull and machinery work.
+    subdomain: fleet
+  - term: bunkering
+    definition: Taking fuel oil on board a vessel at a port.
+    subdomain: fleet
+  - term: seafarer
+    definition: A crew member employed to work on board a vessel.
+    subdomain: crew
+  - term: rank
+    definition: A seafarer's role on board, e.g. Master, Chief Engineer, Able Seaman.
+    subdomain: crew
+  - term: STCW
+    definition: Standards of Training, Certification and Watchkeeping for seafarers.
+    subdomain: crew
+  - term: crew assignment
+    definition: A posting of one seafarer to one vessel for a defined embark/disembark period.
+    subdomain: crew
+  - term: certification
+    definition: A credential held by a seafarer, with an issuing authority and an expiry date.
+    subdomain: crew
+  - term: warehouse
+    definition: An onshore depot storing spares, safety equipment and provisions.
+    subdomain: warehouse
+  - term: inventory item
+    definition: A stocked product identified by SKU, held in a warehouse or on a vessel.
+    subdomain: warehouse
+  - term: SKU
+    definition: Stock-keeping unit — the unique code for an inventory item.
+    subdomain: warehouse
+  - term: stock movement
+    definition: A receipt, issue, transfer, adjustment or damage event changing stock quantity.
+    subdomain: warehouse
+  - term: reorder level
+    definition: The stock quantity at or below which an item is low stock and must be reordered.
+    subdomain: warehouse
+  - term: supplier
+    definition: An external company supplying spares, provisions, fuel or services.
+    subdomain: procurement
+  - term: purchase order
+    definition: A formal order to a supplier for goods, with a required date and total amount.
+    subdomain: procurement
+  - term: delivery
+    definition: Goods received against a purchase order at a warehouse.
+    subdomain: procurement
+  - term: asset
+    definition: A maintainable piece of equipment on a vessel or in a warehouse, e.g. a main engine or crane.
+    subdomain: maintenance
+  - term: work order
+    definition: A task to maintain or repair an asset, with type, priority, cost and hours.
+    subdomain: maintenance
+  - term: inspection
+    definition: A recorded check of an asset, with a pass/fail/conditional result and findings.
+    subdomain: maintenance
+  - term: planned maintenance
+    definition: Work scheduled in advance to prevent failure, as opposed to corrective work.
+    subdomain: maintenance
+  - term: document
+    definition: A certificate held for a vessel or warehouse, e.g. Safety Management Certificate, with an expiry date.
+    subdomain: compliance
+  - term: Safety Management Certificate
+    definition: Certificate confirming a vessel's safety management system complies with the ISM Code.
+    subdomain: compliance
+  - term: ISM
+    definition: International Safety Management Code for the safe operation of ships.
+    subdomain: compliance
+  - term: ISPS
+    definition: International Ship and Port Facility Security Code.
+    subdomain: compliance
+  - term: Port State Control
+    definition: Inspection of foreign vessels in a port by that state's maritime authority.
+    subdomain: compliance
+  - term: conformance
+    definition: Meeting a requirement; a report records conformant, observation, non-conformance or overdue.
+    subdomain: compliance
+  - term: incident
+    definition: An unwanted event on a vessel or in a warehouse, graded minor, major or critical.
+    subdomain: compliance

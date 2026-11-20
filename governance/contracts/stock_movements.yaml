@@ -1,0 +1,57 @@
+dataset: stock_movements
+subdomain: warehouse
+primary_key: movement_id
+schema:
+- column: movement_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: item_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: warehouse_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: vessel_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+- column: movement_type
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: quantity
+  type: BIGINT
+  nullable: false
+  pii: false
+- column: movement_date
+  type: DATE
+  nullable: false
+  pii: false
+- column: reference
+  type: VARCHAR
+  nullable: false
+  pii: false
+not_null:
+- movement_id
+- item_id
+- warehouse_id
+- movement_type
+- quantity
+- movement_date
+- reference
+foreign_keys:
+- column: item_id
+  references: inventory_items.item_id
+- column: warehouse_id
+  references: warehouses.warehouse_id
+- column: vessel_id
+  references: vessels.vessel_id
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative

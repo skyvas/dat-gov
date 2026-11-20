@@ -1,0 +1,21 @@
+asset_id,asset_name,asset_type,vessel_id,warehouse_id,serial_number,install_date,asset_status,criticality
+AST-00001,Lifeboat unit 1,winch,,WH-01,SN-904282,2025-01-29,under repair,high
+AST-00002,Navigation Radar unit 2,winch,VES-026,,SN-710439,2012-05-06,operational,medium
+AST-00003,Main Engine unit 3,main engine,VES-029,,SN-649753,2025-10-30,out of service,critical
+AST-00004,Lifeboat unit 4,lifeboat,,WH-01,SN-485825,2015-02-28,operational,critical
+AST-00005,Navigation Radar unit 5,generator,,WH-05,SN-808407,2011-06-08,under repair,low
+AST-00006,Forklift unit 6,navigation radar,,WH-01,SN-819455,2024-02-09,operational,medium
+AST-00007,Forklift unit 7,navigation radar,VES-006,,SN-241118,2016-05-15,operational,low
+AST-00008,Winch unit 8,pump,VES-028,,SN-698434,2017-06-01,operational,low
+AST-00009,Main Engine unit 9,compressor,VES-005,,SN-435867,2024-11-18,operational,critical
+AST-00010,Generator unit 10,generator,VES-039,,SN-309819,2013-03-01,operational,medium
+AST-00011,Navigation Radar unit 11,compressor,VES-007,,SN-907334,2020-02-26,operational,low
+AST-00012,Generator unit 12,pump,VES-034,,SN-581962,2011-03-07,under repair,low
+AST-00013,Crane unit 13,generator,VES-013,,SN-322197,2014-02-19,operational,low
+AST-00014,Generator unit 14,pump,VES-012,,SN-491696,2017-10-31,operational,low
+AST-00015,Compressor unit 15,crane,VES-022,,SN-276815,2023-05-21,under repair,low
+AST-00016,Pump unit 16,boiler,,WH-03,SN-756425,2018-01-13,operational,critical
+AST-00017,Main Engine unit 17,pump,VES-044,,SN-177209,2021-12-16,operational,critical
+AST-00018,Lifeboat unit 18,main engine,,WH-06,SN-791005,2010-08-24,operational,medium
+AST-00019,Navigation Radar unit 19,generator,VES-018,,SN-549434,2018-02-14,operational,medium
+AST-00020,Lifeboat unit 20,crane,VES-031,,SN-433517,2017-08-03,operational,high

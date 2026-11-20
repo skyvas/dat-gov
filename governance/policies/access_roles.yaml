@@ -1,0 +1,30 @@
+# Access roles: dataset access + masked columns per role. PII columns are never
+# granted in clear to Analyst/Viewer; Vessel Master sees only their own vessel's data.
+roles:
+  - role: Fleet Manager
+    datasets: [vessels, voyages, ports, fuel_bunkering, work_orders, inspections, documents, audits, conformance_reports, incidents]
+    masked_columns: [email, phone, passport_number, seafarer_id]
+  - role: Vessel Master
+    datasets: [vessels, voyages, crew_assignments, certifications, work_orders, inspections, documents, incidents, stock_movements]
+    masked_columns: [email, phone, passport_number, seafarer_id]
+  - role: Chief Engineer
+    datasets: [vessels, assets, work_orders, inspections, inventory_items, stock_movements]
+    masked_columns: [email, phone, passport_number, seafarer_id]
+  - role: Warehouse Manager
+    datasets: [warehouses, inventory_items, stock_movements, purchase_orders, deliveries, suppliers, assets]
+    masked_columns: [email, phone, passport_number, seafarer_id]
+  - role: Procurement
+    datasets: [suppliers, purchase_orders, deliveries, inventory_items, warehouses]
+    masked_columns: [passport_number, seafarer_id]
+  - role: Compliance Officer
+    datasets: [documents, audits, conformance_reports, incidents, certifications, crew_members, vessels]
+    masked_columns: []
+  - role: Auditor
+    datasets: [audits, conformance_reports, documents, incidents, work_orders, purchase_orders, deliveries]
+    masked_columns: [email, phone, passport_number, seafarer_id]
+  - role: Analyst
+    datasets: [vessels, voyages, inventory_items, work_orders, purchase_orders, deliveries, documents, audits, conformance_reports, incidents, fuel_bunkering]
+    masked_columns: [email, phone, passport_number, seafarer_id, contact_email]
+  - role: Viewer
+    datasets: [vessels, voyages, ports, warehouses]
+    masked_columns: [email, phone, passport_number, seafarer_id, contact_email]

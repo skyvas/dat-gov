@@ -1,0 +1,26 @@
+dataset: crew_members
+subdomain: crew
+domain: Maritime Supply Chain & Fleet Operations
+description: One row per seafarer employed by Northgate, with rank, nationality and
+  contact PII.
+owner: Crewing Manager
+steward: Crewing Steward
+classification: restricted
+pii_fields:
+- email
+- phone
+- passport_number
+- seafarer_id
+retention: 7 years after off-hire
+source_system: warehouse-erp
+quality_rules:
+- not_null_pk
+- fk_integrity
+- no_future_dates
+- non_negative_amounts
+- date_order
+upstream: []
+downstream:
+- crew_assignments
+- gold_crew_certification
+gold_marts: []

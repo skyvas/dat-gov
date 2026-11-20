@@ -1,0 +1,59 @@
+dataset: assets
+subdomain: maintenance
+primary_key: asset_id
+schema:
+- column: asset_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: asset_name
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: asset_type
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: vessel_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+- column: warehouse_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+- column: serial_number
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: install_date
+  type: DATE
+  nullable: false
+  pii: false
+- column: asset_status
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: criticality
+  type: VARCHAR
+  nullable: false
+  pii: false
+not_null:
+- asset_id
+- asset_name
+- asset_type
+- serial_number
+- install_date
+- asset_status
+- criticality
+foreign_keys:
+- column: vessel_id
+  references: vessels.vessel_id
+- column: warehouse_id
+  references: warehouses.warehouse_id
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative

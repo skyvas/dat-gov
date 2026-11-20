@@ -1,0 +1,23 @@
+dataset: work_orders
+subdomain: maintenance
+domain: Maritime Supply Chain & Fleet Operations
+description: One row per maintenance work order against an asset, with cost and hours.
+owner: Technical Manager
+steward: Maintenance Steward
+classification: internal
+pii_fields: []
+retention: 7 years
+source_system: vessel systems (offline-capable)
+quality_rules:
+- not_null_pk
+- fk_integrity
+- no_future_dates
+- non_negative_amounts
+- date_order
+upstream:
+- assets
+- crew_members
+downstream:
+- gold_maintenance_backlog
+- gold_work_order_cost
+gold_marts: []

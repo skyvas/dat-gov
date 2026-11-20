@@ -1,0 +1,22 @@
+dataset: certifications
+subdomain: crew
+domain: Maritime Supply Chain & Fleet Operations
+description: One row per crew certificate (STCW, medical, GMDSS), with issue/expiry
+  dates.
+owner: Crewing Manager
+steward: Crewing Steward
+classification: restricted
+pii_fields: []
+retention: 7 years after expiry
+source_system: warehouse-erp + vessel systems
+quality_rules:
+- not_null_pk
+- fk_integrity
+- no_future_dates
+- non_negative_amounts
+- date_order
+upstream:
+- crew_members
+downstream:
+- gold_crew_certification
+gold_marts: []

@@ -1,0 +1,23 @@
+dataset: voyages
+subdomain: fleet
+domain: Maritime Supply Chain & Fleet Operations
+description: One row per vessel voyage between two ports, with cargo, dates and fuel
+  consumed.
+owner: Fleet Director
+steward: Fleet Operations Steward
+classification: internal
+pii_fields: []
+retention: 7 years
+source_system: vessel systems (offline-capable)
+quality_rules:
+- not_null_pk
+- fk_integrity
+- no_future_dates
+- non_negative_amounts
+- date_order
+upstream:
+- vessels
+- ports
+downstream:
+- gold_voyage_performance
+gold_marts: []

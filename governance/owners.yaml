@@ -1,0 +1,25 @@
+# Northgate Maritime — ownership. One domain owner, one owner + steward per subdomain.
+domain: Maritime Supply Chain & Fleet Operations
+domain_owner:
+  name: Chief Operating Officer
+  role: Domain Owner
+  responsibilities: [accountable for the domain, approves data products, arbitrates cross-subdomain conflicts]
+subdomains:
+  fleet:
+    owner: Fleet Director
+    steward: Fleet Operations Steward
+  crew:
+    owner: Crewing Manager
+    steward: Crewing Steward
+  warehouse:
+    owner: Warehouse Manager
+    steward: Inventory Steward
+  procurement:
+    owner: Procurement Manager
+    steward: Procurement Steward
+  maintenance:
+    owner: Technical Manager
+    steward: Maintenance Steward
+  compliance:
+    owner: Compliance Officer
+    steward: Compliance Steward

@@ -1,0 +1,22 @@
+dataset: suppliers
+subdomain: procurement
+domain: Maritime Supply Chain & Fleet Operations
+description: One row per supplier of spares, provisions, fuel or services.
+owner: Procurement Manager
+steward: Procurement Steward
+classification: internal
+pii_fields:
+- contact_email
+retention: 5 years
+source_system: warehouse-erp
+quality_rules:
+- not_null_pk
+- fk_integrity
+- no_future_dates
+- non_negative_amounts
+- date_order
+upstream: []
+downstream:
+- purchase_orders
+- gold_supplier_performance
+gold_marts: []

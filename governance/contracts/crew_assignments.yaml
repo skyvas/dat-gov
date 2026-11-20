@@ -1,0 +1,50 @@
+dataset: crew_assignments
+subdomain: crew
+primary_key: assignment_id
+schema:
+- column: assignment_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: crew_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: vessel_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: role
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: embark_date
+  type: DATE
+  nullable: false
+  pii: false
+- column: disembark_date
+  type: DATE
+  nullable: true
+  pii: false
+- column: assignment_status
+  type: VARCHAR
+  nullable: false
+  pii: false
+not_null:
+- assignment_id
+- crew_id
+- vessel_id
+- role
+- embark_date
+- assignment_status
+foreign_keys:
+- column: crew_id
+  references: crew_members.crew_id
+- column: vessel_id
+  references: vessels.vessel_id
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative

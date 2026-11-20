@@ -1,0 +1,59 @@
+dataset: vessels
+subdomain: fleet
+primary_key: vessel_id
+schema:
+- column: vessel_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: vessel_name
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: vessel_type
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: imo_number
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: flag
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: gross_tonnage
+  type: BIGINT
+  nullable: false
+  pii: false
+- column: year_built
+  type: BIGINT
+  nullable: false
+  pii: false
+- column: status
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: home_port_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+not_null:
+- vessel_id
+- vessel_name
+- vessel_type
+- imo_number
+- flag
+- gross_tonnage
+- year_built
+- status
+- home_port_id
+foreign_keys:
+- column: home_port_id
+  references: ports.port_id
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative

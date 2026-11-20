@@ -1,0 +1,49 @@
+dataset: certifications
+subdomain: crew
+primary_key: certification_id
+schema:
+- column: certification_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: crew_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: certification_type
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: issuing_authority
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: issue_date
+  type: DATE
+  nullable: false
+  pii: false
+- column: expiry_date
+  type: DATE
+  nullable: false
+  pii: false
+- column: cert_status
+  type: VARCHAR
+  nullable: false
+  pii: false
+not_null:
+- certification_id
+- crew_id
+- certification_type
+- issuing_authority
+- issue_date
+- expiry_date
+- cert_status
+foreign_keys:
+- column: crew_id
+  references: crew_members.crew_id
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative

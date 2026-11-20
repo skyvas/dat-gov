@@ -1,0 +1,60 @@
+dataset: incidents
+subdomain: compliance
+primary_key: incident_id
+schema:
+- column: incident_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: vessel_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+- column: warehouse_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+- column: incident_date
+  type: DATE
+  nullable: false
+  pii: false
+- column: incident_type
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: severity
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: description
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: status
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: reported_by_crew_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+not_null:
+- incident_id
+- incident_date
+- incident_type
+- severity
+- description
+- status
+foreign_keys:
+- column: vessel_id
+  references: vessels.vessel_id
+- column: warehouse_id
+  references: warehouses.warehouse_id
+- column: reported_by_crew_id
+  references: crew_members.crew_id
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative

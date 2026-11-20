@@ -1,0 +1,56 @@
+dataset: conformance_reports
+subdomain: compliance
+primary_key: report_id
+schema:
+- column: report_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: audit_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+- column: document_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+- column: vessel_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+- column: warehouse_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+- column: report_date
+  type: DATE
+  nullable: false
+  pii: false
+- column: conformance_status
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: description
+  type: VARCHAR
+  nullable: false
+  pii: false
+not_null:
+- report_id
+- report_date
+- conformance_status
+- description
+foreign_keys:
+- column: audit_id
+  references: audits.audit_id
+- column: document_id
+  references: documents.document_id
+- column: vessel_id
+  references: vessels.vessel_id
+- column: warehouse_id
+  references: warehouses.warehouse_id
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative

@@ -1,0 +1,59 @@
+dataset: audits
+subdomain: compliance
+primary_key: audit_id
+schema:
+- column: audit_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: audit_type
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: vessel_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+- column: warehouse_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+- column: audit_date
+  type: DATE
+  nullable: false
+  pii: false
+- column: auditor
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: audit_status
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: findings_count
+  type: BIGINT
+  nullable: false
+  pii: false
+- column: audit_result
+  type: VARCHAR
+  nullable: false
+  pii: false
+not_null:
+- audit_id
+- audit_type
+- audit_date
+- auditor
+- audit_status
+- findings_count
+- audit_result
+foreign_keys:
+- column: vessel_id
+  references: vessels.vessel_id
+- column: warehouse_id
+  references: warehouses.warehouse_id
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative

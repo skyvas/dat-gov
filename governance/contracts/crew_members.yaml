@@ -1,0 +1,67 @@
+dataset: crew_members
+subdomain: crew
+primary_key: crew_id
+schema:
+- column: crew_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: first_name
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: last_name
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: rank
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: nationality
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: date_of_birth
+  type: DATE
+  nullable: false
+  pii: false
+- column: email
+  type: VARCHAR
+  nullable: false
+  pii: true
+- column: phone
+  type: VARCHAR
+  nullable: false
+  pii: true
+- column: passport_number
+  type: VARCHAR
+  nullable: false
+  pii: true
+- column: seafarer_id
+  type: VARCHAR
+  nullable: false
+  pii: true
+- column: employment_status
+  type: VARCHAR
+  nullable: false
+  pii: false
+not_null:
+- crew_id
+- first_name
+- last_name
+- rank
+- nationality
+- date_of_birth
+- email
+- phone
+- passport_number
+- seafarer_id
+- employment_status
+foreign_keys: []
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative

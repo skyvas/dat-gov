@@ -1,0 +1,24 @@
+# Retention policy.
+policy: Retention
+rules:
+  - dataset: crew_members
+    retention: 7 years after off-hire
+  - dataset: certifications
+    retention: 7 years after expiry
+  - dataset: documents
+    retention: 5 years after expiry
+  - dataset: audits
+    retention: 7 years
+  - dataset: conformance_reports
+    retention: 7 years
+  - dataset: incidents
+    retention: 10 years
+  - dataset: voyages
+    retention: 7 years
+  - dataset: work_orders
+    retention: 7 years
+  - dataset: default
+    retention: 5 years
+notes:
+  - Bronze is immutable while retained; deletion applies to all layers together.
+  - Quarantine rows are retained with their reason for the same period as their dataset.

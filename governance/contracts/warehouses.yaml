@@ -1,0 +1,44 @@
+dataset: warehouses
+subdomain: warehouse
+primary_key: warehouse_id
+schema:
+- column: warehouse_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: warehouse_name
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: location
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: port_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: capacity_sqm
+  type: BIGINT
+  nullable: false
+  pii: false
+- column: warehouse_type
+  type: VARCHAR
+  nullable: false
+  pii: false
+not_null:
+- warehouse_id
+- warehouse_name
+- location
+- port_id
+- capacity_sqm
+- warehouse_type
+foreign_keys:
+- column: port_id
+  references: ports.port_id
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative
