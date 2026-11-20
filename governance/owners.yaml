@@ -1,0 +1,36 @@
+# Ownership — the first governance pillar. Every dataset has a named
+# owner (accountable) and a steward (does the day-to-day work). No
+# "owned by the data team" anywhere: ownership lives with the business.
+domain:
+  name: Higher Education
+  organisation: Northbridge University
+  owner: Chief Data Officer
+  owner_office: Provost Office
+  description: >
+    One domain covering the whole student lifecycle, from first
+    application to graduation and billing. Subdomains own their data
+    end to end; the domain owner arbitrates cross-subdomain issues
+    (e.g. a student_id that means different things in two systems).
+
+subdomains:
+  admissions:
+    owner: Director of Admissions
+    steward: Admissions Data Steward
+    datasets: [applicants, applications]
+    description: Who applies, through which channel, and what happens to the application.
+  registrar:
+    owner: Registrar
+    steward: Registrar Data Steward
+    datasets: [students, enrollments]
+    description: Who is a student, and what they are enrolled in.
+  academics:
+    owner: Dean of Academics
+    steward: Academic Data Steward
+    datasets: [departments, courses, faculty, sections]
+    description: What is taught, by whom, where, and in which term.
+  finance:
+    owner: Bursar
+    steward: Finance Data Steward
+    datasets: [tuition_charges, payments, financial_aid]
+    description: What students are charged, what they pay, and what aid they receive.
+    note: Financial Aid awards are stewarded day-to-day by the Director of Financial Aid.
