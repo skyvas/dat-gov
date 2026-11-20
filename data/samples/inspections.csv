@@ -1,0 +1,21 @@
+inspection_id,asset_id,vessel_id,warehouse_id,inspection_type,inspection_date,inspector,result,findings
+INS-00001,AST-06322,VES-014,,pre-voyage,2024-11-11,Grace Ali,pass,No findings
+INS-00002,AST-02516,VES-048,,class survey,2024-12-12,Emil Kowalski,pass,Corrosion on housing
+INS-00003,AST-04158,VES-036,,safety,2024-07-20,Ivan Sorensen,pass,Calibration due
+INS-00004,AST-03939,,WH-05,port state,2024-11-13,Piotr Nguyen,pass,No findings
+INS-00005,AST-01674,VES-025,,routine,2026-04-04,Grace Muller,pass,Corrosion on housing
+INS-00006,AST-02985,VES-044,,safety,2025-09-10,Arjun Nguyen,pass,Corrosion on housing
+INS-00007,AST-04401,VES-017,,safety,2025-06-28,Elena Santos,fail,Minor wear noted
+INS-00008,AST-08367,,WH-04,class survey,2025-05-18,Yusuf Fischer,pass,Seal replacement recommended
+INS-00009,AST-09384,VES-028,,class survey,2024-06-10,Yusuf Sorensen,conditional,Corrosion on housing
+INS-00010,AST-01847,VES-033,,safety,2026-06-05,Zara Silva,pass,Minor wear noted
+INS-00011,AST-03343,VES-020,,pre-voyage,2024-08-13,Oleg Ahmad,pass,Corrosion on housing
+INS-00012,AST-04047,,WH-03,routine,2026-08-03,Elena Mensah,pass,Minor wear noted
+INS-00013,AST-04071,,WH-03,port state,2026-06-12,Carlos Sorensen,pass,Seal replacement recommended
+INS-00014,AST-00176,,WH-06,port state,2025-02-10,Maria Okafor,pass,Minor wear noted
+INS-00015,AST-09145,VES-043,,routine,2027-06-01,Carlos Mensah,pass,Calibration due
+INS-00016,AST-06913,VES-045,,port state,2024-08-18,Lara Kaur,pass,Seal replacement recommended
+INS-00017,AST-00156,,WH-02,safety,2025-11-27,Nadia Rossi,pass,Minor wear noted
+INS-00018,AST-07105,,WH-02,safety,2024-12-03,Mei Chen,pass,Calibration due
+INS-00019,AST-06874,VES-016,,safety,2026-07-30,Fatima Kowalski,conditional,Minor wear noted
+INS-00020,AST-09473,VES-012,,pre-voyage,2024-12-13,Tara Santos,conditional,No findings

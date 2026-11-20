@@ -1,0 +1,22 @@
+dataset: stock_movements
+subdomain: warehouse
+domain: Maritime Supply Chain & Fleet Operations
+description: One row per stock receipt, issue, transfer, adjustment or damage event.
+owner: Warehouse Manager
+steward: Inventory Steward
+classification: internal
+pii_fields: []
+retention: 5 years
+source_system: warehouse-erp + vessel systems
+quality_rules:
+- not_null_pk
+- fk_integrity
+- no_future_dates
+- non_negative_amounts
+- date_order
+upstream:
+- inventory_items
+- warehouses
+downstream:
+- gold_inventory_health
+gold_marts: []

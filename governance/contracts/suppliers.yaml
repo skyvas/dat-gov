@@ -1,0 +1,52 @@
+dataset: suppliers
+subdomain: procurement
+primary_key: supplier_id
+schema:
+- column: supplier_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: supplier_name
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: country
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: region
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: category
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: contact_email
+  type: VARCHAR
+  nullable: false
+  pii: true
+- column: rating
+  type: DOUBLE
+  nullable: false
+  pii: false
+- column: supplier_status
+  type: VARCHAR
+  nullable: false
+  pii: false
+not_null:
+- supplier_id
+- supplier_name
+- country
+- region
+- category
+- contact_email
+- rating
+- supplier_status
+foreign_keys: []
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative

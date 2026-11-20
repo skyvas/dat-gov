@@ -1,0 +1,22 @@
+dataset: crew_assignments
+subdomain: crew
+domain: Maritime Supply Chain & Fleet Operations
+description: One row per crew posting to a vessel, with embark/disembark dates and
+  role.
+owner: Crewing Manager
+steward: Crewing Steward
+classification: internal
+pii_fields: []
+retention: 5 years
+source_system: warehouse-erp + vessel systems
+quality_rules:
+- not_null_pk
+- fk_integrity
+- no_future_dates
+- non_negative_amounts
+- date_order
+upstream:
+- crew_members
+- vessels
+downstream: []
+gold_marts: []

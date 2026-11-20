@@ -1,0 +1,21 @@
+wo_id,asset_id,vessel_id,warehouse_id,wo_type,priority,description,created_date,due_date,completed_date,status,estimated_cost,actual_cost,estimated_hours,actual_hours,assigned_crew_id
+WO-00001,AST-05795,VES-016,,dry-dock,medium,Planned maintenance on navigation radar,2026-06-17,2026-07-01,2026-06-20,completed,2658.00,1887.82,17.7,13.2,
+WO-04472,AST-03966,,WH-02,planned,medium,Dry-Dock maintenance on navigation radar,2026-06-11,2026-09-07,2026-06-13,completed,41392.14,5652.13,70.4,96.8,CRW-00376
+WO-00003,AST-07394,,WH-01,emergency,medium,Emergency maintenance on lifeboat,2024-09-07,2024-09-25,2024-09-11,completed,79008.11,1985.35,3.1,2.1,CRW-01269
+WO-00004,AST-06875,VES-011,,emergency,urgent,Planned maintenance on crane,2025-10-04,2025-10-14,,on hold,8562.99,,89.6,,
+WO-00005,AST-02604,VES-005,,dry-dock,high,Dry-Dock maintenance on forklift,2025-06-10,2025-08-09,,overdue,43711.95,,79.9,,CRW-01674
+WO-00006,AST-09139,VES-035,,emergency,urgent,Corrective maintenance on main engine,2025-07-09,2025-10-07,2025-08-28,completed,15057.66,1909.91,65.1,74.2,CRW-00473
+WO-00007,AST-00760,VES-042,,planned,high,Corrective maintenance on compressor,2025-03-02,2025-03-31,,in progress,76058.24,,108.1,,
+WO-00008,AST-02116,VES-033,,dry-dock,high,Corrective maintenance on boiler,2025-12-11,2026-01-08,,open,77835.01,,75.8,,CRW-00217
+WO-00009,AST-03445,,WH-05,corrective,urgent,Dry-Dock maintenance on main engine,2025-04-16,2025-07-04,2025-04-20,completed,17813.45,3734.85,32.6,5.7,CRW-01295
+WO-00010,AST-05454,VES-043,,planned,urgent,Planned maintenance on generator,2026-07-07,2026-07-11,2026-08-29,completed,14499.90,71161.50,4.2,64.8,
+WO-00011,AST-00706,VES-013,,planned,low,Emergency maintenance on forklift,2024-11-02,2025-01-29,2024-11-03,completed,72659.38,29715.79,18.6,27.4,CRW-00858
+WO-00012,AST-03849,VES-014,,planned,urgent,Planned maintenance on forklift,2024-02-17,2024-04-05,2024-03-01,completed,19839.56,48852.70,22.1,86.3,CRW-01111
+WO-00013,AST-07187,VES-013,,corrective,medium,Dry-Dock maintenance on main engine,2025-06-12,2025-07-14,,in progress,34338.89,,17.2,,CRW-01232
+WO-00014,AST-05956,,WH-04,corrective,low,Planned maintenance on lifeboat,2026-09-14,2026-12-05,,on hold,23929.22,,21.4,,CRW-00519
+WO-00015,AST-02665,,WH-02,dry-dock,low,Emergency maintenance on compressor,2024-02-03,2024-04-09,2024-02-04,completed,62505.19,38616.19,52.4,56.0,
+WO-00016,AST-03777,VES-023,,planned,urgent,Planned maintenance on crane,2026-07-25,2026-09-02,,open,56099.44,,5.0,,CRW-01312
+WO-00017,AST-07416,VES-040,,corrective,medium,Corrective maintenance on forklift,2024-12-30,2025-02-26,,open,1827.40,,87.5,,CRW-00302
+WO-00018,AST-07384,,WH-05,dry-dock,low,Dry-Dock maintenance on pump,2024-09-29,2024-11-06,2024-11-23,completed,23555.24,82251.74,103.0,51.0,CRW-01785
+WO-00019,AST-00194,,WH-03,planned,medium,Corrective maintenance on winch,2025-05-30,2025-07-22,,open,78514.94,,10.8,,CRW-00787
+WO-00020,AST-01451,VES-030,,emergency,high,Planned maintenance on compressor,2025-12-28,2026-02-10,,open,11803.29,,97.3,,CRW-01366

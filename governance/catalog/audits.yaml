@@ -1,0 +1,23 @@
+dataset: audits
+subdomain: compliance
+domain: Maritime Supply Chain & Fleet Operations
+description: One row per audit (ISM, ISPS, Port State Control, internal) of a vessel
+  or warehouse.
+owner: Compliance Officer
+steward: Compliance Steward
+classification: confidential
+pii_fields: []
+retention: 7 years
+source_system: warehouse-erp + vessel systems
+quality_rules:
+- not_null_pk
+- fk_integrity
+- no_future_dates
+- non_negative_amounts
+- date_order
+upstream:
+- vessels
+- warehouses
+downstream:
+- conformance_reports
+gold_marts: []

@@ -1,0 +1,21 @@
+incident_id,vessel_id,warehouse_id,incident_date,incident_type,severity,description,status,reported_by_crew_id
+INC-0001,VES-004,,2026-04-17,oil spill,minor,Containment completed,investigating,CRW-00823
+INC-0002,,WH-03,2025-05-14,equipment failure,minor,Crew member treated on board,closed,CRW-00542
+INC-0003,VES-044,,2026-07-16,near miss,major,Containment completed,closed,CRW-00508
+INC-0004,,WH-03,2024-11-28,collision,minor,Equipment isolated pending repair,investigating,CRW-01371
+INC-0005,,WH-01,2024-10-28,security incident,minor,Reported and logged for review,closed,CRW-01706
+INC-0006,,WH-07,2024-09-15,near miss,major,Crew member treated on board,investigating,CRW-00466
+INC-0007,VES-027,,2023-10-05,security incident,minor,Reported and logged for review,closed,CRW-00209
+INC-0008,VES-005,,2024-10-07,injury,minor,Containment completed,closed,CRW-00860
+INC-0009,VES-005,,2023-05-31,injury,minor,Crew member treated on board,investigating,CRW-00274
+INC-0010,VES-048,,2026-10-10,injury,major,Crew member treated on board,open,
+INC-0011,,WH-05,2024-06-13,fire,minor,Containment completed,closed,CRW-01109
+INC-0012,VES-016,,2026-06-16,fire,major,Crew member treated on board,investigating,CRW-01047
+INC-0013,VES-007,,2023-01-20,security incident,major,Reported and logged for review,open,CRW-01287
+INC-0014,,WH-01,2024-07-14,security incident,minor,Reported and logged for review,closed,CRW-01537
+INC-0015,VES-019,,2026-08-20,fire,major,Crew member treated on board,closed,CRW-00799
+INC-0016,VES-032,,2023-01-07,equipment failure,minor,Containment completed,closed,CRW-00652
+INC-0017,VES-010,,2025-02-19,grounding,major,Reported and logged for review,closed,CRW-01365
+INC-0018,VES-009,,2026-04-01,fire,minor,Crew member treated on board,investigating,
+INC-0019,VES-027,,2025-04-17,near miss,minor,Crew member treated on board,investigating,CRW-00616
+INC-0020,VES-008,,2023-11-20,grounding,minor,Equipment isolated pending repair,closed,CRW-01269

@@ -1,0 +1,21 @@
+dataset: warehouses
+subdomain: warehouse
+domain: Maritime Supply Chain & Fleet Operations
+description: Reference table of onshore warehouses/depots.
+owner: Warehouse Manager
+steward: Inventory Steward
+classification: internal
+pii_fields: []
+retention: 5 years
+source_system: warehouse-erp (reference)
+quality_rules:
+- not_null_pk
+- fk_integrity
+- no_future_dates
+- non_negative_amounts
+- date_order
+upstream:
+- ports
+downstream:
+- inventory_items
+gold_marts: []

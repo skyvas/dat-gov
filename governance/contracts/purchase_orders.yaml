@@ -1,0 +1,62 @@
+dataset: purchase_orders
+subdomain: procurement
+primary_key: po_id
+schema:
+- column: po_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: supplier_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: warehouse_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: vessel_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+- column: order_date
+  type: DATE
+  nullable: false
+  pii: false
+- column: required_date
+  type: DATE
+  nullable: false
+  pii: false
+- column: total_amount
+  type: DOUBLE
+  nullable: false
+  pii: false
+- column: po_status
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: currency
+  type: VARCHAR
+  nullable: false
+  pii: false
+not_null:
+- po_id
+- supplier_id
+- warehouse_id
+- order_date
+- required_date
+- total_amount
+- po_status
+- currency
+foreign_keys:
+- column: supplier_id
+  references: suppliers.supplier_id
+- column: warehouse_id
+  references: warehouses.warehouse_id
+- column: vessel_id
+  references: vessels.vessel_id
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative

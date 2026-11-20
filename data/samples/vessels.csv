@@ -1,0 +1,21 @@
+vessel_id,vessel_name,vessel_type,imo_number,flag,gross_tonnage,year_built,status,home_port_id
+VES-001,Northgate Pioneer,tug,5667265,Panama,44853,2020,active,PRT-036
+VES-002,Atlantic Voyager,bulk carrier,4612365,Bahamas,29793,2000,active,PRT-046
+VES-003,Pacific Endeavour,tanker,5437923,Panama,123435,2015,active,PRT-049
+VES-004,Meridian Sentinel,container,5918715,Norway,97800,2016,active,PRT-009
+VES-005,Harbour Mariner,container,4823498,Marshall Islands,23916,2005,dry-dock,PRT-049
+VES-006,Seafarer Navigator,tanker,8606962,Bahamas,45638,2009,active,PRT-035
+VES-007,Oceanic Explorer,container,3871230,Netherlands,67175,2003,active,PRT-035
+VES-008,Polar Guardian,tug,4684531,Bahamas,17663,2005,active,PRT-041
+VES-009,Northgate Trader,offshore support,5491946,Liberia,58307,2016,dry-dock,PRT-041
+VES-010,Atlantic Carrier,bulk carrier,9375710,Cyprus,171519,2012,active,PRT-018
+VES-011,Pacific Falcon,bulk carrier,5408072,Norway,115311,2016,active,PRT-029
+VES-012,Meridian Heron,bulk carrier,9548432,United Kingdom,26831,2022,active,PRT-015
+VES-013,Harbour Pioneer,bulk carrier,3684052,Cyprus,159345,2000,active,PRT-060
+VES-014,Seafarer Voyager,tug,5218028,Netherlands,6009,2019,active,PRT-035
+VES-015,Oceanic Endeavour,tanker,2871534,Marshall Islands,116971,2003,active,PRT-034
+VES-016,Polar Sentinel,tug,3997281,Netherlands,30894,2018,active,PRT-026
+VES-017,Northgate Mariner,bulk carrier,7273233,Singapore,144394,2022,laid-up,PRT-001
+VES-018,Atlantic Navigator,tug,6438436,United Kingdom,8105,2001,laid-up,PRT-040
+VES-019,Pacific Explorer,bulk carrier,1971823,Malta,151729,2000,active,PRT-063
+VES-020,Meridian Guardian,container,9937326,Singapore,36657,2019,active,PRT-022

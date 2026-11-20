@@ -1,0 +1,21 @@
+crew_id,first_name,last_name,rank,nationality,date_of_birth,email,phone,passport_number,seafarer_id,employment_status
+CRW-00001,Piotr,Mensah,Steward,Ukraine,1981-10-23,piotr.mensah0@example-seafarer.com,+77 508 519687,X9153230,SEA-209394,off-hired
+CRW-00002,Oleg,Tanaka,Able Seaman,United Kingdom,2004-07-05,oleg.tanaka1@example-seafarer.com,+12 453 356951,S3587735,SEA-512038,active
+CRW-00003,Anita,Khan,Able Seaman,China,2001-12-29,anita.khan2@example-seafarer.com,+61 748 834543,E9317684,SEA-242640,active
+CRW-00004,Mei,Reyes,Cook,China,2003-03-31,mei.reyes3@example-seafarer.com,+48 739 701238,C2796597,SEA-728412,active
+CRW-00005,Tara,Adeyemi,Cook,Croatia,1998-02-22,tara.adeyemi4@example-seafarer.com,+90 799 261023,Z9410611,SEA-482133,active
+CRW-00006,Priya,Kim,Ordinary Seaman,Greece,1997-06-01,priya.kim5@example-seafarer.com,+93 958 788242,G5125519,SEA-120562,active
+CRW-00007,Dalia,Fischer,Ordinary Seaman,Myanmar,1971-03-24,dalia.fischer6@example-seafarer.com,+21 262 505041,F7992491,SEA-372442,active
+CRW-00008,Ravi,Kaur,Cook,Croatia,1993-10-08,ravi.kaur7@example-seafarer.com,+75 373 402589,X7634113,SEA-102650,active
+CRW-00009,Olga,Santos,Electrician,Greece,1968-09-08,olga.santos8@example-seafarer.com,+95 900 689904,W2678642,SEA-736642,active
+CRW-00010,Dalia,Chen,Ordinary Seaman,Greece,1968-01-28,dalia.chen9@example-seafarer.com,+29 686 810500,W5652939,SEA-413456,active
+CRW-00011,Hana,Diaz,Chief Engineer,Greece,1974-03-30,hana.diaz10@example-seafarer.com,+96 202 550304,I3983710,SEA-645273,active
+CRW-00012,Grace,Marino,Engine Cadet,Greece,1994-09-27,grace.marino11@example-seafarer.com,+83 587 385331,O8464876,SEA-555473,active
+CRW-00013,Oleg,Iversen,Master,Croatia,1965-11-04,oleg.iversen12@example-seafarer.com,+56 433 417710,X5417843,SEA-780150,active
+CRW-00014,Fatima,Moreau,Second Engineer,United Kingdom,1989-02-02,fatima.moreau13@example-seafarer.com,+70 773 616559,D6641936,SEA-530468,on leave
+CRW-00015,Anders,Nguyen,Steward,Philippines,2002-03-27,anders.nguyen14@example-seafarer.com,+84 372 904972,T1902080,SEA-610527,active
+CRW-00016,Grace,Moreau,Chief Officer,Greece,1974-06-11,grace.moreau15@example-seafarer.com,+56 707 586343,O3096973,SEA-153428,active
+CRW-00017,Dmitri,Silva,Ordinary Seaman,Romania,1976-04-26,dmitri.silva16@example-seafarer.com,+69 565 339826,Y5827415,SEA-744414,off-hired
+CRW-00018,Grace,Garcia,Engine Cadet,Poland,1996-02-22,grace.garcia17@example-seafarer.com,+78 595 239976,F6912250,SEA-483026,active
+CRW-00019,Nikolai,Fischer,Cook,Poland,1969-08-29,nikolai.fischer18@example-seafarer.com,+38 450 383496,U9183892,SEA-424031,active
+CRW-00020,Emil,Fischer,Engine Cadet,Greece,1985-12-23,emil.fischer19@example-seafarer.com,+37 734 797503,K3544242,SEA-349338,on leave

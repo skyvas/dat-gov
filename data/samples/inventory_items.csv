@@ -1,0 +1,21 @@
+item_id,sku,item_name,category,warehouse_id,vessel_id,unit,unit_cost,reorder_level,current_qty
+ITM-00001,SKU-ENG-00001,Piston ring set,engine spares,WH-06,,kg,2982.03,28,234
+ITM-00002,SKU-ELE-00002,Motor starter,electrical,WH-08,,metre,2971.70,2,164
+ITM-00003,SKU-DEC-00003,Mooring rope,deck,WH-02,,box,2997.02,26,305
+ITM-00004,SKU-ENG-00004,Turbocharger kit,engine spares,WH-05,VES-023,each,4334.53,22,74
+ITM-00005,SKU-DEC-00005,Fender,deck,WH-07,VES-039,metre,3547.53,38,228
+ITM-00006,SKU-ELE-00006,Motor starter,electrical,WH-01,,each,4438.77,37,89
+ITM-00007,SKU-PRO-00007,Rice 25kg,provisions,WH-07,,each,1178.14,50,124
+ITM-00008,SKU-ELE-00008,Sensor - temperature,electrical,WH-07,,litre,3017.52,20,289
+ITM-00009,SKU-ELE-00009,Cable tray,electrical,WH-05,VES-036,each,14.64,6,51
+ITM-00010,SKU-ENG-00010,Lube oil filter,engine spares,WH-08,,each,314.90,16,6
+ITM-00011,SKU-ELE-00011,Motor starter,electrical,WH-01,,metre,815.49,18,177
+ITM-00012,SKU-ELE-00012,Motor starter,electrical,WH-05,VES-046,kg,4143.58,3,61
+ITM-00013,SKU-SAF-00013,Fire extinguisher,safety,WH-03,,kg,2566.19,42,127
+ITM-00014,SKU-DEC-00014,Paint - marine grey,deck,WH-08,VES-016,each,1050.45,14,391
+ITM-00015,SKU-PRO-00015,Coffee beans,provisions,WH-03,VES-017,box,2485.14,10,56
+ITM-00016,SKU-PRO-00016,Cooking oil,provisions,WH-06,,box,1046.30,25,43
+ITM-00017,SKU-DEC-00017,Paint - marine grey,deck,WH-07,,each,3025.70,29,31
+ITM-00018,SKU-ELE-00018,Battery 12V,electrical,WH-07,,litre,2183.17,11,139
+ITM-00019,SKU-SAF-00019,Safety harness,safety,WH-04,VES-048,litre,2372.06,20,303
+ITM-00020,SKU-ELE-00020,LED floodlight,electrical,WH-08,VES-044,metre,2356.02,4,12

@@ -1,0 +1,94 @@
+dataset: work_orders
+subdomain: maintenance
+primary_key: wo_id
+schema:
+- column: wo_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: asset_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: vessel_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+- column: warehouse_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+- column: wo_type
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: priority
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: description
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: created_date
+  type: DATE
+  nullable: false
+  pii: false
+- column: due_date
+  type: DATE
+  nullable: false
+  pii: false
+- column: completed_date
+  type: DATE
+  nullable: true
+  pii: false
+- column: status
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: estimated_cost
+  type: DOUBLE
+  nullable: false
+  pii: false
+- column: actual_cost
+  type: DOUBLE
+  nullable: true
+  pii: false
+- column: estimated_hours
+  type: DOUBLE
+  nullable: false
+  pii: false
+- column: actual_hours
+  type: DOUBLE
+  nullable: true
+  pii: false
+- column: assigned_crew_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+not_null:
+- wo_id
+- asset_id
+- wo_type
+- priority
+- description
+- created_date
+- due_date
+- status
+- estimated_cost
+- estimated_hours
+foreign_keys:
+- column: asset_id
+  references: assets.asset_id
+- column: vessel_id
+  references: vessels.vessel_id
+- column: warehouse_id
+  references: warehouses.warehouse_id
+- column: assigned_crew_id
+  references: crew_members.crew_id
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative

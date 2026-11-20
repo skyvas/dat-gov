@@ -1,0 +1,21 @@
+port_id,port_name,country,region,unlocode,port_type
+PRT-001,Singapore,Singapore,Asia-Pacific,SGSIN,container
+PRT-002,Rotterdam,Netherlands,Europe,NLRTM,container
+PRT-003,Shanghai,China,Asia-Pacific,CNSHA,container
+PRT-004,Houston,United States,Americas,USHOU,bulk
+PRT-005,Antwerp,Belgium,Europe,BEANR,container
+PRT-006,Busan,South Korea,Asia-Pacific,KRPUS,container
+PRT-007,Dubai,United Arab Emirates,Middle East,AEDXB,container
+PRT-008,Los Angeles,United States,Americas,USLAX,container
+PRT-009,Hamburg,Germany,Europe,DEHAM,container
+PRT-010,Santos,Brazil,Americas,BRSSZ,bulk
+PRT-011,Mumbai,India,Asia-Pacific,INNSA,container
+PRT-012,Tokyo,Japan,Asia-Pacific,JPTYO,container
+PRT-013,Felixstowe,United Kingdom,Europe,GBFXT,container
+PRT-014,Valencia,Spain,Europe,ESVLC,container
+PRT-015,Jeddah,Saudi Arabia,Middle East,SAJED,container
+PRT-016,Cape Town,South Africa,Africa,ZACPT,bulk
+PRT-017,Sydney,Australia,Oceania,AUSYD,container
+PRT-018,Vancouver,Canada,Americas,CAVAN,bulk
+PRT-019,Piraeus,Greece,Europe,GRPIR,container
+PRT-020,New York,United States,Americas,USNYC,container

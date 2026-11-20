@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install -e ".[dev]"
+      - name: Lint
+        run: ruff check src tests scripts
+      - name: Test
+        run: python -m pytest -q
+      - name: Run pipeline
+        run: python -m dat_gov.cli all
+      - name: Upload artefacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: governance-artefacts
+          path: |
+            data/quality_report.json
+            docs/catalog.md
+            docs/lineage.md
+            data/lineage.json

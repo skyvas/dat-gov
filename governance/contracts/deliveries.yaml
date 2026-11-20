@@ -1,0 +1,51 @@
+dataset: deliveries
+subdomain: procurement
+primary_key: delivery_id
+schema:
+- column: delivery_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: po_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: delivery_date
+  type: DATE
+  nullable: false
+  pii: false
+- column: received_qty
+  type: BIGINT
+  nullable: false
+  pii: false
+- column: delivered_amount
+  type: DOUBLE
+  nullable: false
+  pii: false
+- column: delivery_status
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: received_by_warehouse_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+not_null:
+- delivery_id
+- po_id
+- delivery_date
+- received_qty
+- delivered_amount
+- delivery_status
+- received_by_warehouse_id
+foreign_keys:
+- column: po_id
+  references: purchase_orders.po_id
+- column: received_by_warehouse_id
+  references: warehouses.warehouse_id
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative

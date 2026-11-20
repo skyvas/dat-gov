@@ -1,0 +1,15 @@
+# Quality policy: thresholds per dimension. Pipeline fails if quarantine rate exceeds 5%.
+policy: Data quality
+quarantine_threshold_pct: 5.0
+thresholds:
+  completeness_pct: 98.0
+  validity_pct: 97.0
+  uniqueness_pct: 100.0
+  consistency_pct: 97.0
+  timeliness_pct: 95.0
+dimensions:
+  completeness: share of non-null required cells in Silver
+  validity: share of rows passing format/range checks
+  uniqueness: share of distinct primary keys in Silver (100% by construction after dedupe)
+  consistency: share of rows passing FK and cross-field checks
+  timeliness: share of rows ingested within the expected freshness window

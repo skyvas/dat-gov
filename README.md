@@ -1,139 +1,87 @@
-# dat-gov — Data Governance, Learned by Building It
+# Northgate Maritime — Data Governance Model
 
-A small, lightweight, fully working model of a governed data platform
-for a fictional university, **Northbridge University**. No Spark, no
-Airflow, no dbt, no cloud: Python 3.12 + DuckDB + PyYAML. Run one
-command and you get a Bronze → Silver → Gold pipeline, data contracts
-that actually fail bad rows, a quarantine you can inspect, a quality
-report, a generated data catalog, and lineage — all on synthetic data
-you can read and reason about.
+A complete, runnable data-governance model for a fictional maritime company:
+**Northgate Maritime** — an onshore warehouse (always online) plus a fleet of
+ships at sea (offline, sync on reconnect). One domain, six subdomains,
+20 datasets, ~89,000 synthetic rows, medallion pipeline, YAML contracts,
+and an offline-sync model with steward review for safety records.
 
-This is a learning project. Every module has a docstring that names
-the governance concept it demonstrates, and the docs explain each
-decision with a concrete example from this repo.
+> Note on counts: the brief enumerates 19 datasets by name but requires 20.
+> The 20th is `fuel_bunkering` (fleet) — the natural missing fact linking
+> vessel + port + supplier. The 19 named datasets keep their specified
+> counts; the total is 88,960 raw rows (~95k as specified, approximately).
 
-## What it teaches
+## Domain / subdomain map
 
-| Concept | Where to see it |
+| Subdomain | Datasets |
 |---|---|
-| Domain / subdomain ownership | `governance/owners.yaml` — one domain, four subdomains, named owners |
-| Medallion architecture | `data/bronze/` raw-as-received, `data/silver/` cleaned + validated, `data/gold/` business marts |
-| Data contracts | `governance/contracts/*.yaml` — schema, PK, not-null, ranges, formats, FKs |
-| Data quality as a gate | `src/dat_gov/quality.py` → `data/quality_report.json`; `cli check` exits 1 on failure |
-| Quarantine, not silent drops | `data/quarantine/*.parquet` with `_quarantine_reason` on every bad row |
-| Data catalog | `governance/catalog/*.yaml` → generated `docs/catalog.md` |
-| Lineage | `src/dat_gov/lineage.py` → `data/lineage.json` + `docs/lineage.md` (Mermaid) |
-| PII classification + masking | `governance/policies/pii_policy.yaml`, `src/dat_gov/masking.py`; Gold has no raw PII |
-| Access control | `governance/policies/access_roles.yaml` — 7 roles, dataset + masked-column lists |
-| Retention | `governance/policies/retention_policy.yaml` — 7 years (10 for departments/courses) |
+| fleet | vessels (48), voyages (3,200), ports (64, reference), fuel_bunkering (2,600) |
+| crew | crew_members (1,800), crew_assignments (4,500), certifications (3,600) |
+| warehouse | warehouses (8, reference), inventory_items (6,000), stock_movements (25,000) |
+| procurement | suppliers (140), purchase_orders (4,800), deliveries (3,800) |
+| maintenance | assets (9,500), work_orders (9,000), inspections (4,200) |
+| compliance | documents (7,500), audits (850), conformance_reports (1,400), incidents (950) |
 
-## Architecture
+## Medallion
 
-```mermaid
-flowchart LR
-    RAW["data/raw/*.csv\nsynthetic source systems"] --> BRONZE["Bronze\nraw as received\n+ _ingested_at, _row_hash"]
-    BRONZE --> SILVER["Silver\ntyped, deduped,\ncontract-validated"]
-    SILVER --> GOLD["Gold\naggregated marts\nPII-free"]
-    SILVER --> Q["Quarantine\nbad rows + reason"]
-    SILVER --> QR["quality_report.json"]
-    GOLD --> QR
-```
+- **Bronze** — raw as received, immutable. Adds `_ingested_at`, `_source_file`,
+  `_source_system` (`warehouse-erp` onshore, `vessel-<id>` at sea),
+  `_captured_offline`, `_sync_status` (`synced`/`pending`/`conflict`),
+  `_batch_id`, `_row_hash`. ~35% of vessel-originated rows are offline-captured.
+- **Silver** — typed, deduped on PK, contract-validated, FK-checked against
+  conformed dimensions. Failures are quarantined with `_quarantine_reason`,
+  never silently dropped. Conflict-flagged safety/compliance rows go to
+  steward review (`sync_conflict_steward_review`).
+- **Gold** — 8 PII-free marts, reconciled to Silver: fleet availability,
+  voyage performance, inventory health, maintenance backlog, compliance
+  posture, crew certification, supplier performance, work-order cost.
 
-## Domain and subdomain map
+## Governance pillars
 
-Domain: **Higher Education** (Northbridge University), owner Chief Data Officer, Provost Office.
+- **Ownership** — `governance/owners.yaml` (domain owner: Chief Operating
+  Officer; one owner + steward per subdomain).
+- **Glossary** — `governance/glossary.yaml` (32 business terms).
+- **Data products** — `governance/data_products.yaml` (5 products, Gold
+  inputs, consumers, SLA/freshness).
+- **Catalog & contracts** — `governance/catalog/*.yaml` and
+  `governance/contracts/*.yaml`, one per dataset (20 each).
+- **Policies** — `governance/policies/`: access roles (9 roles), PII
+  (hash + mask), retention, quality (quarantine threshold 5%),
+  offline sync (last-write-wins except safety/compliance).
+- **Catalog generation** — `docs/catalog.md` + `data/lineage.json` are
+  generated from the YAML + real Parquet schemas, so they cannot drift.
 
-| Subdomain | Owner | Datasets |
-|---|---|---|
-| admissions | Director of Admissions | applicants, applications |
-| registrar | Registrar | students, enrollments |
-| academics | Dean of Academics | departments, courses, faculty, sections |
-| finance | Bursar | tuition_charges, payments, financial_aid |
+## Offline sync
 
-## Medallion layers
-
-| Layer | Rule | Example |
-|---|---|---|
-| Bronze | Immutable copy of what arrived. Adds audit metadata only, never fixes a value. | A negative tuition charge and a bad email are preserved here |
-| Silver | Typed, deduped, contract-validated. A row that fails is quarantined with a reason, never silently dropped. PII retained but classified. | 5,000 clean applicants from 5,120 raw; 120 quarantined |
-| Gold | Aggregated business marts built only from Silver. No raw email, phone, gov_id or names. Totals reconcile to Silver. | Admissions funnel, enrolment, retention, finance, teaching load |
+Vessels capture data offline and sync on reconnect — see
+`docs/OFFLINE_SYNC.md`. Last-write-wins for operational records; safety /
+compliance conflicts are quarantined for steward review, never overwritten.
 
 ## Quickstart
 
 ```bash
-python3 -m venv .venv
-.venv/bin/pip install -e ".[dev]"
-.venv/bin/python -m dat_gov.cli all
+python3 -m venv .venv && .venv/bin/pip install -e ".[dev]"
+.venv/bin/python -m dat_gov.cli all        # generate -> bronze -> silver -> gold -> quality -> catalog
+.venv/bin/python -m pytest -q              # tests
+.venv/bin/ruff check src tests scripts     # lint
+make run | make test | make lint | make catalog | make clean
 ```
 
-That runs the whole pipeline in about 8 seconds and prints a stage
-summary. Then:
+Outputs: `data/raw/*.csv`, `data/bronze|silver|gold|quarantine/*.parquet`,
+`data/quality_report.json`, `data/lineage.json`, `docs/catalog.md`,
+`docs/lineage.md`. Samples: `data/samples/` (20-row CSVs).
 
-```bash
-.venv/bin/python -m pytest -q        # 21 tests
-.venv/bin/ruff check src tests scripts
-.venv/bin/python -m dat_gov.cli check  # quality gate only
-```
+## How to add a subdomain
 
-Inspect the outputs:
-
-- `data/quality_report.json` — per-dataset Bronze/Silver/quarantine counts and check results
-- `docs/catalog.md` — generated data dictionary (from the YAML + real Parquet schemas)
-- `docs/lineage.md` — Mermaid lineage, Bronze → Silver → Gold
-- `data/quarantine/applicants.parquet` — the bad rows, with reasons (try `SELECT _quarantine_reason, count(*) FROM read_parquet('data/quarantine/applicants.parquet') GROUP BY 1` in DuckDB)
-
-## What a run looks like
-
-On the reference run (seed 42, deterministic):
-
-| Dataset | Raw | Silver | Quarantined |
-|---|---|---|---|
-| applicants | 5,120 | 5,000 | 120 (2.3%) |
-| applications | 5,330 | 5,200 | 130 (2.4%) |
-| students | 3,090 | 3,000 | 90 (2.9%) |
-| enrollments | 12,300 | 12,000 | 300 (2.4%) |
-| tuition_charges | 10,036 | 9,836 | 200 (2.0%) |
-| payments | 6,150 | 6,000 | 150 (2.4%) |
-| financial_aid | 2,060 | 2,000 | 60 (2.9%) |
-
-Gold reconciles: funnel 5,200 applied → 3,452 admitted → 3,000
-enrolled; finance billed $60,298,778 across 4 terms; Gold enrolment
-total (12,000) equals Silver enrolments exactly.
-
-## How to read the governance artefacts
-
-- **A new dataset?** Add its contract + catalog YAML, add it to
-  `governance/owners.yaml` and `config.DATASETS`, generate it, and the
-  governance tests (`tests/test_governance.py`) will fail until all
-  three exist. See the checklist in `docs/GOVERNANCE.md`.
-- **A quality failure?** Open the quarantine file for that dataset,
-  read `_quarantine_reason`, fix the source system, re-run. The
-  pipeline never promotes a quarantined row.
-- **"Where did this Gold number come from?"** Follow
-  `docs/lineage.md` back to Silver, then to Bronze, then to the raw
-  CSV named in `_source_file`.
-
-## Repo layout
-
-```text
-src/dat_gov/        pipeline code (generate, ingest, transform_silver/gold, quality, masking, lineage, catalog, cli)
-governance/         owners.yaml, catalog/*.yaml, contracts/*.yaml, policies/*.yaml
-docs/               ARCHITECTURE.md, GOVERNANCE.md, DECISIONS.md, catalog.md + lineage.md (generated)
-tests/              pytest suite (generation, bronze, silver, gold, governance, PII)
-data/samples/       20-row samples per key dataset (committed; full data is generated, gitignored)
-scripts/            run_pipeline.py (thin wrapper around the CLI)
-.github/workflows/ ci.yml (ruff, pytest, full pipeline, artefacts)
-```
+1. Add the subdomain + owner/steward to `governance/owners.yaml` and
+   `src/dat_gov/config.py` (`SUBDOMAINS`, `SCHEMAS`, `DATASETS`, `FOREIGN_KEYS`).
+2. Add generation in `src/dat_gov/generate.py`, a catalog + contract YAML,
+   and a Gold mart (or extend one) in `src/dat_gov/transform_gold.py`.
+3. Add tests in `tests/` covering counts, contracts, FKs and Gold reconciliation.
+4. Run `python -m dat_gov.cli all` and `pytest -q` — the quality gate must pass.
 
 ## Docs
 
-- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — layers, data flow, and why each piece exists
-- [docs/GOVERNANCE.md](docs/GOVERNANCE.md) — each governance pillar, with a concrete example
-- [docs/DECISIONS.md](docs/DECISIONS.md) — ADRs: why DuckDB not Spark, why YAML contracts, why synthetic data
-- [docs/DATA_DICTIONARY.md](docs/DATA_DICTIONARY.md) — pointer to the generated catalog
-
-## Notes
-
-All people, emails, phones and government IDs are synthetic
-(`example.edu`, `+1-555-…`, `NB-100000` style). No real personal data,
-no secrets, no credentials anywhere in this repo.
+- `docs/ARCHITECTURE.md`, `docs/GOVERNANCE.md`, `docs/DECISIONS.md`,
+  `docs/OFFLINE_SYNC.md`, `docs/DATA_PRODUCTS.md`, `docs/DATA_DICTIONARY.md`
+  (pointer to the generated catalog).

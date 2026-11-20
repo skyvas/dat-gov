@@ -1,0 +1,21 @@
+audit_id,audit_type,vessel_id,warehouse_id,audit_date,auditor,audit_status,findings_count,audit_result
+AUD-0001,ISM,VES-029,,2026-06-17,Aisha Dube,completed,16,non-conformance
+AUD-0002,Port State Control,,WH-01,2023-09-05,Tara Ivanov,completed,2,non-conformance
+AUD-0003,internal,VES-005,,2025-05-24,Rosa Petrov,completed,14,observation
+AUD-0004,ISPS,,WH-06,2025-01-02,Hana Ivanov,in progress,5,observation
+AUD-0005,ISPS,VES-044,,2024-05-25,Nadia Ali,completed,17,non-conformance
+AUD-0006,Port State Control,VES-012,,2025-04-19,Fatima Marino,completed,10,observation
+AUD-0007,ISPS,VES-047,,2023-11-16,Dmitri Novak,completed,4,conformant
+AUD-0008,ISM,VES-045,,2026-06-21,Zara Nguyen,completed,15,observation
+AUD-0009,internal,VES-038,,2023-06-26,Stefan Chen,completed,15,conformant
+AUD-0010,ISPS,,WH-07,2023-01-21,Mei Diaz,scheduled,12,conformant
+AUD-0011,Port State Control,,WH-08,2025-10-17,Rajesh Nakamura,completed,11,observation
+AUD-0012,Port State Control,,WH-07,2023-04-11,Ravi Costa,scheduled,9,conformant
+AUD-0013,internal,VES-008,,2025-10-18,Dalia Ivanov,completed,10,conformant
+AUD-0014,Port State Control,,WH-01,2025-05-01,Kofi Singh,in progress,16,conformant
+AUD-0015,internal,VES-023,,2023-01-27,Nadia Nakamura,scheduled,12,conformant
+AUD-0016,ISPS,VES-030,,2025-04-27,Aisha Adeyemi,completed,5,observation
+AUD-0017,ISPS,VES-025,,2024-06-05,Sofia Costa,completed,13,conformant
+AUD-0018,ISPS,VES-048,,2023-09-14,Kofi Okafor,completed,8,conformant
+AUD-0019,Port State Control,,WH-07,2023-06-28,Marco Khan,completed,17,conformant
+AUD-0020,ISM,VES-048,,2025-02-13,Nikolai Berg,in progress,16,conformant

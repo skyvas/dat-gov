@@ -1,0 +1,21 @@
+dataset: ports
+subdomain: fleet
+domain: Maritime Supply Chain & Fleet Operations
+description: Reference table of ports worldwide served by Northgate (UN/LOCODE).
+owner: Fleet Director
+steward: Fleet Operations Steward
+classification: internal
+pii_fields: []
+retention: 5 years
+source_system: warehouse-erp (reference)
+quality_rules:
+- not_null_pk
+- fk_integrity
+- no_future_dates
+- non_negative_amounts
+- date_order
+upstream: []
+downstream:
+- vessels
+- voyages
+gold_marts: []

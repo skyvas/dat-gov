@@ -1,0 +1,23 @@
+dataset: purchase_orders
+subdomain: procurement
+domain: Maritime Supply Chain & Fleet Operations
+description: One row per purchase order raised to a supplier for a warehouse or vessel.
+owner: Procurement Manager
+steward: Procurement Steward
+classification: internal
+pii_fields: []
+retention: 5 years
+source_system: warehouse-erp
+quality_rules:
+- not_null_pk
+- fk_integrity
+- no_future_dates
+- non_negative_amounts
+- date_order
+upstream:
+- suppliers
+- warehouses
+downstream:
+- deliveries
+- gold_supplier_performance
+gold_marts: []

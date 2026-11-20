@@ -1,0 +1,66 @@
+dataset: voyages
+subdomain: fleet
+primary_key: voyage_id
+schema:
+- column: voyage_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: vessel_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: departure_port_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: arrival_port_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: departure_date
+  type: DATE
+  nullable: false
+  pii: false
+- column: arrival_date
+  type: DATE
+  nullable: true
+  pii: false
+- column: cargo_type
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: cargo_tonnes
+  type: DOUBLE
+  nullable: false
+  pii: false
+- column: voyage_status
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: fuel_consumed_tonnes
+  type: DOUBLE
+  nullable: true
+  pii: false
+not_null:
+- voyage_id
+- vessel_id
+- departure_port_id
+- arrival_port_id
+- departure_date
+- cargo_type
+- cargo_tonnes
+- voyage_status
+foreign_keys:
+- column: vessel_id
+  references: vessels.vessel_id
+- column: departure_port_id
+  references: ports.port_id
+- column: arrival_port_id
+  references: ports.port_id
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative

@@ -1,0 +1,21 @@
+document_id,document_type,vessel_id,warehouse_id,title,issuer,issue_date,expiry_date,doc_status,file_reference
+DOC-00001,Pollution Prevention Certificate,VES-022,,Crew Medical Certificate — VES-022,Insurer,2025-06-26,2026-07-19,expired,s3://northgate-docs/748837.pdf
+DOC-00002,Class Certificate,VES-016,,Class Certificate — VES-016,Flag Administration,2023-02-26,2024-06-04,expired,s3://northgate-docs/635275.pdf
+DOC-00003,Load Line Certificate,VES-023,,Load Line Certificate — VES-023,Flag Administration,2023-03-06,2025-08-14,expired,s3://northgate-docs/121699.pdf
+DOC-00004,Pollution Prevention Certificate,VES-009,,Load Line Certificate — VES-009,Class Society,2023-01-06,2025-04-27,expired,s3://northgate-docs/690236.pdf
+DOC-00005,Pollution Prevention Certificate,,WH-01,Class Certificate — WH-01,Medical Centre,2021-02-11,2023-05-11,expired,s3://northgate-docs/642885.pdf
+DOC-00006,Crew Medical Certificate,,WH-07,Minimum Safe Manning Document — WH-07,Medical Centre,2021-12-25,2023-09-21,expired,s3://northgate-docs/475608.pdf
+DOC-00007,Safety Management Certificate,VES-038,,Class Certificate — VES-038,Flag Administration,2021-06-28,2025-11-03,expired,s3://northgate-docs/495629.pdf
+DOC-00008,Pollution Prevention Certificate,,WH-07,Ship Sanitation Certificate — WH-07,Flag Administration,2024-10-30,2028-05-13,valid,s3://northgate-docs/809231.pdf
+DOC-00009,Load Line Certificate,VES-043,,Safety Management Certificate — VES-043,Port Authority,2021-07-15,2026-05-28,expired,s3://northgate-docs/813234.pdf
+DOC-00010,Crew Medical Certificate,,WH-06,Ship Sanitation Certificate — WH-06,Port Authority,2024-04-07,2028-03-12,valid,s3://northgate-docs/118587.pdf
+DOC-00011,Pollution Prevention Certificate,VES-023,,Minimum Safe Manning Document — VES-023,Medical Centre,2021-11-26,2024-07-11,expired,s3://northgate-docs/354373.pdf
+DOC-00012,Insurance Certificate,VES-006,,Insurance Certificate — VES-006,Port Authority,2025-11-12,2029-03-19,valid,s3://northgate-docs/712471.pdf
+DOC-00013,Insurance Certificate,,WH-02,Pollution Prevention Certificate — WH-02,Insurer,2023-03-01,2026-10-26,expired,s3://northgate-docs/600951.pdf
+DOC-00014,Class Certificate,VES-023,,Pollution Prevention Certificate — VES-023,Medical Centre,2024-01-11,2028-05-20,valid,s3://northgate-docs/954598.pdf
+DOC-00015,Crew Medical Certificate,,WH-02,Insurance Certificate — WH-02,Port Authority,2022-12-01,2027-10-07,valid,s3://northgate-docs/958557.pdf
+DOC-00016,Safety Management Certificate,,WH-06,Insurance Certificate — WH-06,Medical Centre,2024-07-28,2025-11-02,expired,s3://northgate-docs/784974.pdf
+DOC-00017,Ship Sanitation Certificate,VES-016,,Safety Management Certificate — VES-016,Medical Centre,2021-10-09,2026-06-09,expired,s3://northgate-docs/559393.pdf
+DOC-00018,Minimum Safe Manning Document,VES-003,,Ship Sanitation Certificate — VES-003,Class Society,2021-05-16,2022-11-15,,s3://northgate-docs/757431.pdf
+DOC-00019,Safety Management Certificate,VES-003,,Insurance Certificate — VES-003,Medical Centre,2024-12-09,2027-03-23,valid,s3://northgate-docs/560236.pdf
+DOC-00020,Crew Medical Certificate,VES-039,,Insurance Certificate — VES-039,Class Society,2022-12-20,2025-05-30,expired,s3://northgate-docs/697234.pdf

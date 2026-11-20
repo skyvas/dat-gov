@@ -1,0 +1,11 @@
+# Offline sync policy: vessels at sea capture data offline and sync on reconnect.
+policy: Offline capture and sync
+rules:
+  - Vessels capture voyages, work orders, inspections, documents and incidents offline; _captured_offline marks them.
+  - On reconnect, rows sync to Bronze with _sync_status synced, pending, or conflict.
+  - Pending rows are retried automatically; they are never dropped.
+  - Conflict rule: last-write-wins for operational records.
+  - Safety/compliance records (documents, audits, conformance_reports, incidents) NEVER resolve by last-write-wins.
+    A conflict-flagged safety/compliance row is quarantined in Silver with reason sync_conflict_steward_review
+    and waits for a Compliance steward to decide — see docs/OFFLINE_SYNC.md.
+  - Bronze preserves the offline flag and sync status forever, so an offline row's provenance is auditable.

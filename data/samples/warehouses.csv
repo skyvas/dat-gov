@@ -1,0 +1,9 @@
+warehouse_id,warehouse_name,location,port_id,capacity_sqm,warehouse_type
+WH-01,Northgate Depot Singapore,Singapore,PRT-001,3639,bonded store
+WH-02,Northgate Depot Rotterdam,Rotterdam,PRT-002,18049,onshore depot
+WH-03,Northgate Depot Houston,Shanghai,PRT-003,8717,bonded store
+WH-04,Northgate Depot Shanghai,Houston,PRT-004,29651,onshore depot
+WH-05,Northgate Depot Dubai,Antwerp,PRT-005,8140,onshore depot
+WH-06,Northgate Depot Felixstowe,Busan,PRT-006,35118,bonded store
+WH-07,Northgate Depot Busan,Dubai,PRT-007,38781,onshore depot
+WH-08,Northgate Depot Santos,Los Angeles,PRT-008,16446,quayside store

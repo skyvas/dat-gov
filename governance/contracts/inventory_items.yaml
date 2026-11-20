@@ -1,0 +1,65 @@
+dataset: inventory_items
+subdomain: warehouse
+primary_key: item_id
+schema:
+- column: item_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: sku
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: item_name
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: category
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: warehouse_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: vessel_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+- column: unit
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: unit_cost
+  type: DOUBLE
+  nullable: false
+  pii: false
+- column: reorder_level
+  type: BIGINT
+  nullable: false
+  pii: false
+- column: current_qty
+  type: BIGINT
+  nullable: false
+  pii: false
+not_null:
+- item_id
+- sku
+- item_name
+- category
+- warehouse_id
+- unit
+- unit_cost
+- reorder_level
+- current_qty
+foreign_keys:
+- column: warehouse_id
+  references: warehouses.warehouse_id
+- column: vessel_id
+  references: vessels.vessel_id
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative

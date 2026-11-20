@@ -1,0 +1,24 @@
+dataset: documents
+subdomain: compliance
+domain: Maritime Supply Chain & Fleet Operations
+description: One row per certificate/document, vessel-specific or warehouse-specific,
+  with expiry.
+owner: Compliance Officer
+steward: Compliance Steward
+classification: restricted
+pii_fields: []
+retention: 5 years after expiry
+source_system: warehouse-erp + vessel systems
+quality_rules:
+- not_null_pk
+- fk_integrity
+- no_future_dates
+- non_negative_amounts
+- exactly_one_location
+upstream:
+- vessels
+- warehouses
+downstream:
+- conformance_reports
+- gold_compliance_posture
+gold_marts: []

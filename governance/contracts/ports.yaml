@@ -1,0 +1,42 @@
+dataset: ports
+subdomain: fleet
+primary_key: port_id
+schema:
+- column: port_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: port_name
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: country
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: region
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: unlocode
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: port_type
+  type: VARCHAR
+  nullable: false
+  pii: false
+not_null:
+- port_id
+- port_name
+- country
+- region
+- unlocode
+- port_type
+foreign_keys: []
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative

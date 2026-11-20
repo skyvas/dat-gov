@@ -1,0 +1,64 @@
+dataset: documents
+subdomain: compliance
+primary_key: document_id
+schema:
+- column: document_id
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: document_type
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: vessel_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+- column: warehouse_id
+  type: VARCHAR
+  nullable: true
+  pii: false
+- column: title
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: issuer
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: issue_date
+  type: DATE
+  nullable: false
+  pii: false
+- column: expiry_date
+  type: DATE
+  nullable: false
+  pii: false
+- column: doc_status
+  type: VARCHAR
+  nullable: false
+  pii: false
+- column: file_reference
+  type: VARCHAR
+  nullable: false
+  pii: false
+not_null:
+- document_id
+- document_type
+- title
+- issuer
+- issue_date
+- expiry_date
+- doc_status
+- file_reference
+foreign_keys:
+- column: vessel_id
+  references: vessels.vessel_id
+- column: warehouse_id
+  references: warehouses.warehouse_id
+rules:
+- primary_key_unique
+- not_null_enforced
+- foreign_keys_checked
+- dates_not_in_future_except_expiry_and_due
+- amounts_non_negative

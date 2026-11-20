@@ -1,0 +1,32 @@
+# Data products — each consumes Gold marts and serves named consumers under an SLA.
+data_products:
+  - name: Fleet Availability
+    owner: Fleet Director
+    gold_inputs: [gold_fleet_availability]
+    consumers: [Fleet Manager, Vessel Master]
+    sla: Daily refresh by 06:00 UTC; freshness under 24h
+    description: Vessel availability by month — days available, dry-dock and laid-up, availability %.
+  - name: Inventory Health
+    owner: Warehouse Manager
+    gold_inputs: [gold_inventory_health]
+    consumers: [Warehouse Manager, Procurement]
+    sla: Daily refresh by 06:00 UTC; freshness under 24h
+    description: Stock health by warehouse and category — items, low-stock count, stock value.
+  - name: Maintenance Backlog
+    owner: Technical Manager
+    gold_inputs: [gold_maintenance_backlog, gold_work_order_cost]
+    consumers: [Chief Engineer, Fleet Manager]
+    sla: Daily refresh by 06:00 UTC; freshness under 24h
+    description: Open and overdue work orders by vessel/warehouse, with backlog cost and hours.
+  - name: Compliance Posture
+    owner: Compliance Officer
+    gold_inputs: [gold_compliance_posture, gold_crew_certification]
+    consumers: [Compliance Officer, Auditor, Fleet Manager]
+    sla: Daily refresh by 06:00 UTC; freshness under 24h
+    description: Documents expiring within 90 days, overdue conformance and open incidents by severity.
+  - name: Voyage Performance
+    owner: Fleet Director
+    gold_inputs: [gold_voyage_performance, gold_fleet_availability]
+    consumers: [Fleet Manager, Analyst]
+    sla: Daily refresh by 06:00 UTC; freshness under 24h
+    description: Voyages, on-time % and fuel per tonne by vessel, route and month.
